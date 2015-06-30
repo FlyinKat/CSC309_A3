@@ -1,0 +1,38 @@
+User Authentication:
+
+User Profiling:
+-Driver
+--reputation
+--type of vehicle
+--current location/availability
+-Consumer
+--address
+--list of delivery item
+--reputation
+
+User Interactions:
+C-post/request
+D-browse
+D-accept
+C-pay
+A-receive and confirm
+D-do business
+C-confirm
+A-pay
+D-receive
+
+Implicit Social Networking:
+
+Reputation System:
+-Driver:
+--scale of 1 to 5 given upon delivery rated by consumer based on speed, completeness
+--0 when no show
+--shows an average on profile
+-Consumer:
+--a yes or no telling other driver if a good consumer or not
+--shows percentage of yes on profile
+
+Administrative View:
+-keep track of the request thats being accepted
+-make sure that consumer pays
+-pays back to driver when stuff delivered
