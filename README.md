@@ -1,4 +1,4 @@
-# CSC309_A3
+# Project Fast
 
 Chia-Hung (Kevin) Hsiao : c3hsiaod
 
@@ -11,3 +11,5 @@ Sri Wardhana Halim: g3halims
 
 Trina Yeap: g3trinay
 
+
+Project Fast is a community delivery and time sharing service.
