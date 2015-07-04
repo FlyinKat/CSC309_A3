@@ -29,7 +29,7 @@ Project FastTrack will implement the following features:
 
 * **User Authentication** : Each user will have an username and password.
 * **User Profile** : Each user will have a profile with their location and reputation. 
-* **User Interactions** : A user can be either a shopper or a courier.Couriers and shoppers can list a scource, destination and time. Users then browse through existing listings and contact the courier/shopper and either offer or receive delivery services. Users can also review and rank one another.
+* **User Interactions** : A user can be either a shopper or a courier.Couriers and shoppers can list a source, destination and time. Users then browse through existing listings and contact the courier/shopper and either offer or receive delivery services. Users can also review and rank one another.
 * **Implicit Social Networking** : In this social network, couriers and shoppers that have come to agreement are considered friends.
 * **Reputation System** : The system will compute ratings for couriers and shoppers to determine their reliability. These will be small message with a numerical ranking as well as an aggregate ranking.
 * **Search and Recommendation System** : Users will be able to browse listings and have listing recommended to them based on their location.
