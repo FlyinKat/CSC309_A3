@@ -1,0 +1,89 @@
+Pages
+
+Main Page
+Showing the search columns or post buttons for either customer or courier
+  register or login link to the register/login page on the top right corner of the page
+    after login: it will show the user id and logout button
+2 columns:
+  customer column
+    search - traveling from, travelling to, time
+    search button
+    post a job button
+  courier column
+    search - traveling from, travelling to, time
+    search button
+    post a job button
+
+Login Page
+  username
+  password
+  register button
+  login button
+  forget password link
+  Facebook login button
+
+Account page
+  List all the information about the user
+
+Customer Register Page
+  last name
+  first name
+  address
+  city
+  state
+  postal code
+  email
+  phone number
+  register button
+  cancel button
+
+
+Courier Register Page
+  last name
+  first name
+  address
+  city
+  state
+  postal code
+  email
+  phone number
+  register button
+  cancel button
+
+Courier Job Posting Page
+  item
+  weight limit
+  location
+  time slot
+  submit button
+
+Customer Job Posting Page
+  item to be delivered
+  location
+  time
+  submit button
+
+Listing Page for customer
+  list all the information about the job that courier posted
+  contact info
+  contact column
+  name
+  email
+  message
+  submit button
+  recommendation list for the customer
+
+Listing page for courier
+  list all the information about the job that customer posted
+  contact info
+  contact column
+  name
+  email
+  message
+  submit button
+  recommendation list for the courier
+
+Search Result Page
+  list all the job either from the courier or from the customer depending on what are you looking for
+
+
