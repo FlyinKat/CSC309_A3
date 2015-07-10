@@ -1,6 +1,6 @@
 # Pages
  
-####Main Page
+#### Main Page
 Displays two sections, one for the customer & the other for the courier
 There will be a register and a login button on the top right corner of the page for 
 new customers to sign up or existing customers to sign in 
@@ -28,7 +28,7 @@ The 2 sections represent:
     Post button
       If there are no available services to be picked up by the courier, then the courier is able to post a job
 
-####Login Page
+#### Login Page
   Username text input box
   Password text input box
   Register button (for new users)
@@ -38,7 +38,7 @@ The 2 sections represent:
   Facebook login button
     If users do not want to create a new account, they can link their Facebook account instead.
 
-####Forget Username/Password page
+#### Forget Username/Password page
   Users are redirected to this page if they forget their username/password.
   They are adviced to fill in the username textbox if they do not remember their password.
   If they can't recall both username and password, they should fill up the email textbox.
@@ -49,10 +49,10 @@ The 2 sections represent:
       user's email linked with their username (if they provide a username), otherwise to the email 
       provided in the input box above.
 
-####Account page
+#### Account page
   Lists all the information about the user (which are created in the Customer Registration Page)
 
-####Customer Registration Page
+#### Customer Registration Page
   Customers need to fill up the user details in the text input boxes with their descriptions provided below:  
     First name
     Last name
@@ -66,7 +66,7 @@ The 2 sections represent:
   Cancel button
     This takes users back to the main page
 
-####Courier Registration Page
+#### Courier Registration Page
   Couriers need to fill up the user details in the text input boxes with their descriptions provided below: 
     First name
     Last name
@@ -80,7 +80,7 @@ The 2 sections represent:
   Cancel button
     This takes users back to the main page
 
-####Courier Job Posting Page
+#### Courier Job Posting Page
   Text input boxes:
     Item
     Weight limit
@@ -88,7 +88,7 @@ The 2 sections represent:
     Time slot
   Submit button
 
-####Customer Job Posting Page
+#### Customer Job Posting Page
   Text input boxes:
     Item to be delivered
     Weight
@@ -96,7 +96,7 @@ The 2 sections represent:
     Time
   Submit button
 
-####Customer Listings Page
+#### Customer Listings Page
   Lists all the information about the job that the courier posted
     Contact info
     Name
@@ -105,7 +105,7 @@ The 2 sections represent:
   Submit button
   Recommendation list for the customer by other couriers
 
-####Courier Listings Page
+#### Courier Listings Page
   Lists all the information about the job that the customer posted
     Name
     Email
@@ -113,7 +113,5 @@ The 2 sections represent:
   Submit button
   Recommendation list for the courier by other customers
 
-####Search Results Page
+#### Search Results Page
   Lists all the jobs either from the courier or customer based on the search results provided in the main page
-
-
