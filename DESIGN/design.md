@@ -21,14 +21,26 @@ The following is a high level view of our projects architecture.
 ![Architecture Diagram](https://raw.githubusercontent.com/FlyinKat/CSC309_A3/master/DESIGN/part_a.png)
 
 
-The url module will interpret a URL that is requested by the browser and map it to the the appropriate view which may retrieve and/or modify data within the model and then return the appropriate HTML template. The HTML will then dynamically generate a web using information from the view and display it in the browser. We will be using Django's built in admin site for our administrative view.
+The url module will interpret a URL that is requested by the browser and map it to the the appropriate view which will then validate the data and may retrieve and/or modify data within the model and then return the appropriate HTML template. The HTML will then dynamically generate a web using information from the view and display it in the browser. We will be using Django's built in admin site for our administrative view.
+
+###Features 
+
+Project FastTrack will implement the following features:
+
+* **User Authentication** : Each user will have an username and password.
+* **User Profile** : Each user will have a profile with their location and reputation. 
+* **User Interactions** : A user can be either a shopper or a courier.Couriers and shoppers can list a source, destination and time. Users then browse through existing listings and contact the courier/shopper and either offer or receive delivery services. Users can also review and rank one another.
+* **Implicit Social Networking** : In this social network, couriers and shoppers that have come to agreement are considered friends.
+* **Reputation System** : The system will compute ratings for couriers and shoppers to determine their reliability. These will be small message with a numerical ranking as well as an aggregate ranking.
+* **Search and Recommendation System** : Users will be able to browse listings and have listing recommended to them based on their location.
+* **Administrative View** : Administrators will be able to see aggregate information such as the number of listings, number of successful deliveries, average agreed upon pricing and other useful analytics.
 
 ### Database Schema
 
 Our project will use a PostgreSQL to store data about user and listings and ratings for users. The following will be our schema:
 
 * **User** : {INTEGER userid, CHAR username, CHAR password, CHAR email, CHAR location, BOOLEAN courier }
-* **Listing** {INTEGER listingID, CHAR userid, CHAR itemInfo, CHAR logisticInfo, CHAR location, CHAR arrivalTime}
+* **Listing** {INTEGER listingID, CHAR userid, CHAR itemInfo, CHAR logisticInfo, CHAR location, CHAR arrivalTime, BOOLEAN open }
 * **Rating** {INTEGER ratingID, CHAR userid, CHAR rater, CHAR comment, INTEGER rating}
 
 ### Pages
@@ -149,6 +161,13 @@ Redirects to this page if user tries to post listing or contact any user while n
 
 #### Search Results Page
   Lists all the jobs either from the courier or customer based on the search results provided in the main page and provide link to them.
+  
+#### User Rating Page
+  Allows users to rate couriers
+  *   Text input boxes:
+    *   username
+    *   rating
+    *   comments
 
 ### REST API design
 
