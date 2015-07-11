@@ -53,28 +53,36 @@ new customers to sign up or existing customers to sign in.
 Once login is successful, the user ID will be shown and a log out button will be shown on the page,replacing the register/login buttons
     
 The 2 sections represent:
+
 * Customer column    Displays a search tab where a list containing 3 elements, where each element has a textbox next to it 
     to insert the places/time:
+	
     *  Start destination
     *  End destination
     *  Pickup time
+	
 * Search button :
       This allows customers to search whether there are any courier services available according to its request, links to  search result page.
+	  
 * Post button :
       If there are no available courier services, then the customer is able to post a job , links to search result page.
 * Courier column :
+
     Displays a search tab where a list containing 3 elements, where each element has a textbox next to it 
     to insert the places/time:
     * Start destination
     *  End destination
     *  Pickup time
+	
 * Search button :
       This allows couriers to search whether there are any jobs services available according to its request, links to search result page.
+	  
 * Post button :
       If there are no available services to be picked up by the courier, then the courier is able to post a job, links to  search result page.
 
 #### Login Page
 Redirects to this page if user tries to post listing or contact any user while not logged in.
+
   * Username text input box
   * Password text input box
   * Register button (for new users)
@@ -99,7 +107,8 @@ Redirects to this page if user tries to post listing or contact any user while n
   Lists all the information about the user (which are created in the Customer Registration Page)
 
 #### Customer Registration Page
-  Customers need to fill up the user details in the text input boxes with their descriptions provided below:  
+  Customers need to fill up the user details in the text input boxes with their descriptions provided below:
+  
  *   First name
  *   Last name
  *   Address
@@ -114,6 +123,7 @@ Redirects to this page if user tries to post listing or contact any user while n
 
 #### Courier Registration Page
   Couriers need to fill up the user details in the text input boxes with their descriptions provided below: 
+  
 *   First name
 *   Last name
 *   Address
@@ -127,23 +137,26 @@ Redirects to this page if user tries to post listing or contact any user while n
     This takes users back to the main page
 
 #### Courier Job Posting Page
-* Text input boxes:
-    * Item
-    * Weight limit
-    * Location
-    * Time slot
+ Text input boxes:
+ 
+* Item
+* Weight limit
+* Location
+* Time slot
 *  Submit button
 
 #### Customer Job Posting Page
-*   Text input boxes:
-    * Item to be delivered
-    * Weight
-    * Location
-    * Time
+   Text input boxes:
+   
+* Item to be delivered
+* Weight
+* Location
+* Time
 *   Submit button
 
 #### Customer Listings Page
   Lists all the information about the job that the courier posted
+  
 *   Contact info
 *   Name
 *   Email
@@ -153,21 +166,23 @@ Redirects to this page if user tries to post listing or contact any user while n
 
 #### Courier Listings Page
   Lists all the information about the job that the customer posted
+  
 *     Name
 *     Email
 *     Message
-*   Submit button
-*   Recommendation list for the courier by other customers
+*     Submit button
+*     Recommendation list for the courier by other customers
 
 #### Search Results Page
   Lists all the jobs either from the courier or customer based on the search results provided in the main page and provide link to them.
   
 #### User Rating Page
   Allows users to rate couriers
-  *   Text input boxes:
-    *   username
-    *   rating
-    *   comments
+  Text input boxes:
+  
+*   username
+*   rating
+*   comments
 
 ### REST API design
 
