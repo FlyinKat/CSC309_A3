@@ -13,7 +13,7 @@ Trina Yeap: g3trinay
 
 ###Software architecture
 
-Our project will be using with Python and Django framework with PostgreSQL as the database. It will use Django's modified MVC design pattern; Model-Template-View. 
+Our project will be using with Python and Django REST framework with PostgreSQL as the database. It will use Django's modified MVC design pattern; Model-Template-View. 
 
 The following is a high level view of our projects architecture.
 
@@ -28,8 +28,8 @@ The url module will interpret a URL that is requested by the browser and map it 
 Our project will use a PostgreSQL to store data about user and listings and ratings for users. The following will be our schema:
 
 * **User** : {INTEGER userid, CHAR username, CHAR password, CHAR email, CHAR location, BOOLEAN courier }
-* **Listing** {CHAR userid, CHAR itemInfo, CHAR logisticInfo, CHAR location, CHAR arrivalTime}
-* **Rating** {CHAR userid, CHAR rater, CHAR comment, INTEGER rating}
+* **Listing** {INTEGER listingID, CHAR userid, CHAR itemInfo, CHAR logisticInfo, CHAR location, CHAR arrivalTime}
+* **Rating** {INTEGER ratingID, CHAR userid, CHAR rater, CHAR comment, INTEGER rating}
 
 ### Pages
 
@@ -149,3 +149,33 @@ Redirects to this page if user tries to post listing or contact any user while n
 
 #### Search Results Page
   Lists all the jobs either from the courier or customer based on the search results provided in the main page and provide link to them.
+
+### REST API design
+
+USER
+
+* GET /api/users will retrieve all users
+* GET /api/users/userid will retrieve a users
+* POST /api/users/userid will create a user
+* PUT /api/users/userid will update a user
+* DELETE /api/users/userid will delete a user
+
+LISTING
+
+* GET /api/listings will retrieve all listings
+* GET /api/listings/listingID will retrieve a listings
+* POST /api/listings/listingID will create a listing
+* PUT /api/listings/listingID will update a listing
+* DELETE /api/listings/listingID will delete a listing
+
+RATINGS
+
+* GET /api/ratings will retrieve all ratings
+* GET /api/ratings/ratingID will retrieve a rating
+* POST /api/ratings/ratingID will create a rating
+* PUT /api/ratings/ratingID will update a rating
+* DELETE /api/ratings/ratingID will delete a rating
+
+
+
+
