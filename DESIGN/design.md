@@ -17,7 +17,7 @@ Our project will be using with Python and Django framework with PostgreSQL as th
 
 The following is a high level view of our projects architecture.
 
-![Architecture Diagram](https://github.com/FlyinKat/CSC309_A3/blob/master/DESIGN/design.md)
+![Architecture Diagram](https://github.com/FlyinKat/CSC309_A3/blob/master/DESIGN/part_a.png)
 
 The url module will interpret a URL that is requested by the browser and map it to the the appropriate view which may retrieve and/or modify data within the model and then return the appropriate HTML template. The HTML will then dynamically generate a web using information from the view and display it in the browser. We will be using Django's built in admin site for our administrative view.
 
