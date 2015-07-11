@@ -45,9 +45,9 @@ The 2 sections represent:
     *  End destination
     *  Pickup time
 * Search button :
-      This allows customers to search whether there are any courier services available according to its request
+      This allows customers to search whether there are any courier services available according to its request, links to  search result page.
 * Post button :
-      If there are no available courier services, then the customer is able to post a job
+      If there are no available courier services, then the customer is able to post a job , links to search result page.
 * Courier column :
     Displays a search tab where a list containing 3 elements, where each element has a textbox next to it 
     to insert the places/time:
@@ -55,11 +55,12 @@ The 2 sections represent:
     *  End destination
     *  Pickup time
 * Search button :
-      This allows couriers to search whether there are any jobs services available according to its request
+      This allows couriers to search whether there are any jobs services available according to its request, links to search result page.
 * Post button :
-      If there are no available services to be picked up by the courier, then the courier is able to post a job
+      If there are no available services to be picked up by the courier, then the courier is able to post a job, links to  search result page.
 
 #### Login Page
+Redirects to this page if user tries to post listing or contact any user while not logged in.
   * Username text input box
   * Password text input box
   * Register button (for new users)
@@ -145,4 +146,4 @@ The 2 sections represent:
 *   Recommendation list for the courier by other customers
 
 #### Search Results Page
-  Lists all the jobs either from the courier or customer based on the search results provided in the main page
+  Lists all the jobs either from the courier or customer based on the search results provided in the main page and provide link to them.
