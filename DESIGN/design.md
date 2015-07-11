@@ -21,7 +21,7 @@ The following is a high level view of our projects architecture.
 ![Architecture Diagram](https://raw.githubusercontent.com/FlyinKat/CSC309_A3/master/DESIGN/part_a.png)
 
 
-The url module will interpret a URL that is requested by the browser and map it to the the appropriate view which will then validate the data and may retrieve and/or modify data within the model and then return the appropriate HTML template. The HTML will then dynamically generate a web using information from the view and display it in the browser. We will be using Django's built in admin site for our administrative view.
+The url module will interpret a URL that is requested by the browser and map it to the the appropriate view which will then validate the data and may retrieve and/or modify data within the model and then return the appropriate HTML template. The HTML template will then dynamically generate a web page using information from the view and display it in the browser. We will be using Django's built in admin site for our administrative view. Unlike some MVC pattern, the template(view) will only interact with the model through the view(controller). Each web page will have their own function or class based view(controller).
 
 ###Features 
 
