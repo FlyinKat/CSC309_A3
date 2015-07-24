@@ -8,6 +8,7 @@ class User(models.Model):
 
 class Listing(models.Model):
     info = models.CharField(max_length=200)
+    poster = models.ForeignKey(User)
 
 class Rating(models.Model):    
 	comment = models.CharField(max_length=200)

@@ -13,14 +13,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Listing',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
                 ('info', models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
             name='Rating',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
                 ('comment', models.CharField(max_length=200)),
                 ('rating', models.IntegerField(default=0)),
             ],
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='User',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
                 ('username', models.CharField(max_length=200)),
                 ('password', models.CharField(max_length=200)),
             ],
@@ -36,6 +36,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='rating',
             name='rater',
+            field=models.ForeignKey(to='ft.User'),
+        ),
+        migrations.AddField(
+            model_name='listing',
+            name='poster',
             field=models.ForeignKey(to='ft.User'),
         ),
     ]
