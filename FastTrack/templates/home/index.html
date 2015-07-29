@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <title>{% block title %}FastTrack{% endblock %}</title>
+</head>
+
+<body>
+    <h1>FastTrack Main Page</h1>
+    <hr>
+    <button type="button">REGISTER</button>
+    <button type="button">LOGIN</button>
+    <hr>
+    <div id="content">
+        {% block content %}
+        <div id = "customer">
+            <h2>Customer</h2>
+            <form>
+                START Destination:
+                <input type="text" name="START_DEST">
+                <br>
+                END Destination:
+                <input type="text" name="END_DEST">
+                <br>                
+                Pickup Date:
+                <input type="date" name="pickup_date">
+                <br>
+                Pickup Time:
+                <input type="time" name="pickup_time">
+                <br>
+                <button type="button">SEARCH</button>
+                <button type="button">POST</button>
+            </form>
+        </div>
+        <br>
+        <hr>
+        <div id = "courier">
+            <h2>Courier</h2>
+            <form>
+                START Destination:
+                <input type="text" name="START_DEST">
+                <br>
+                END Destination:
+                <input type="text" name="END_DEST">
+                <br>                
+                Pickup Date:
+                <input type="date" name="pickup_date">
+                <br>
+                Pickup Time:
+                <input type="time" name="pickup_time">
+                <br>
+                <button type="button">SEARCH</button>
+                <button type="button">POST</button>
+            </form>
+        </div>
+        <br>
+        <hr>
+        {% endblock %}
+    </div>
+</body>
+</html>
