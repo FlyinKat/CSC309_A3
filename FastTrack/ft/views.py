@@ -13,10 +13,10 @@ def home(request):
     return HttpResponse("You're at the homepage.")
 
 class ListingList(generics.ListCreateAPIView):
-    queryset = Listing.objects.all()
+    queryset = CustomerListing.objects.all()
     serializer_class = ListingSerializer
 
 
 class ListingDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Listing.objects.all()
+    queryset = CustomerListing.objects.all()
     serializer_class = ListingSerializer

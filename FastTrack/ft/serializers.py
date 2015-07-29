@@ -4,5 +4,5 @@ from .models import *
 
 class ListingSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Listing
-        fields = ('info', 'poster')
+        model = CustomerListing
+        fields = ('customerListingID', 'poster')
