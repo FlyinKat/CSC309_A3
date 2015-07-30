@@ -8,7 +8,7 @@ class Customer(models.Model):
     user = models.ForeignKey(User)
 
 class Courier(models.Model):
-    courierID = models.CharField(max_length=200)
+    courierID = models.IntegerField(default=0)
     user = models.ForeignKey(User)
 
 class Rating(models.Model):    
@@ -26,7 +26,7 @@ class CustomerListing(models.Model):
     poster = models.ForeignKey(Customer)
 
 class CourierListing(models.Model):
-    courierListingID = models.CharField(max_length=200)
+    courierListingID = models.IntegerField(default=0)
     startLocation = models.CharField(max_length=200)
     endLocation = models.CharField(max_length=200)
     arrivalTime = models.DateTimeField(default=0)

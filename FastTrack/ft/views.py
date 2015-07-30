@@ -12,11 +12,21 @@ def index(request):
 def home(request):
     return HttpResponse("You're at the homepage.")
 
-class ListingList(generics.ListCreateAPIView):
+class CustomerListingList(generics.ListCreateAPIView):
     queryset = CustomerListing.objects.all()
-    serializer_class = ListingSerializer
+    serializer_class = CustomerListingSerializer
 
-
-class ListingDetail(generics.RetrieveUpdateDestroyAPIView):
+class CustomerListingDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = CustomerListing.objects.all()
-    serializer_class = ListingSerializer
+    serializer_class = CustomerListingSerializer
+    
+class CustomerListingSearch(generics.ListAPIView):
+    serializer_class = CustomerListingSerializer
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the customer listings for
+        the user as determined by the startlocation portion of the URL.
+        """
+        start = self.kwargs['startLocation']
+        return CustomerListing.objects.filter(startLocation=start)
