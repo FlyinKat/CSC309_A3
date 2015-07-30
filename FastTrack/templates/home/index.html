@@ -2,49 +2,63 @@
 
 <body>
     {% block content %}
-    <div id = "customer">
-        <h2>Customer</h2>
-        <form>
-            START Destination:
-            <input type="text" name="START_DEST">
-            <br>
-            END Destination:
-            <input type="text" name="END_DEST">
-            <br>                
-            Pickup Date:
-            <input type="date" name="pickup_date">
-            <br>
-            Pickup Time:
-            <input type="time" name="pickup_time">
-            <br>
-            <button type="button">SEARCH</button>
-            <button type="button">POST</button>
-        </form>
-    </div>
     <br>
-    <hr>
-    <div id = "courier">
-        <h2>Courier</h2>
-        <form>
-            START Destination:
-            <input type="text" name="START_DEST">
-            <br>
-            END Destination:
-            <input type="text" name="END_DEST">
-            <br>                
-            Pickup Date:
-            <input type="date" name="pickup_date">
-            <br>
-            Pickup Time:
-            <input type="time" name="pickup_time">
-            <br>
-            <button type="button">SEARCH</button>
-            <button type="button">POST</button>
-        </form>
+    <div class="container">
+        <div class="row">
+            <div class = "col-lg-6">
+                <div id = "customer">
+                    <h2>Customer</h2>
+                    <form>
+                        START Destination:
+                        <input type="text" name="START_DEST">
+                        <br><br>
+                        END Destination:
+                        <input type="text" name="END_DEST">
+                        <br><br>                
+                        Pickup Date:
+                        <input type="date" name="pickup_date">
+                        <br><br>
+                        Pickup Time:
+                        <input type="time" name="pickup_time">
+                        <br><br>
+                        <div class="container">
+                            <div class="row search_post_buttons">
+                                <a href="#" class="btn btn-lg btn-light">Search</a>
+                                <a href="#" class="btn btn-lg btn-dark">Post</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class = "col-lg-6">
+                <div id = "courier">
+                    <h2>Courier</h2>
+                    <form>
+                        START Destination:
+                        <input type="text" name="START_DEST">
+                        <br><br>
+                        END Destination:
+                        <input type="text" name="END_DEST">
+                        <br><br>                
+                        Pickup Date:
+                        <input type="date" name="pickup_date">
+                        <br><br>
+                        Pickup Time:
+                        <input type="time" name="pickup_time">
+                        <br><br>
+                        <div class="container">
+                            <div class="row search_post_buttons">
+                                <a href="#" class="btn btn-lg btn-light">Search</a>
+                                <a href="#" class="btn btn-lg btn-dark">Post</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <br>
     <hr>
     {% endblock %}
     </div>
 </body>
-</html>
