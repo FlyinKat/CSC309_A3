@@ -47,3 +47,15 @@ def register_user(request):
 
 def register_success(request):
     return render_to_response('registration/register_success.html')
+
+def search_trips(request):
+    return render_to_response('search/search_trips.html')
+
+def search_jobs(request):
+    return render_to_response('search/search_jobs.html')
+
+def post_trips(request):
+    return render_to_response('post/post_trips.html')
+
+def post_jobs(request):
+    return render_to_response('post/post_jobs.html')

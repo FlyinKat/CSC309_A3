@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+<body>
+
+    {% block header %}
+    <!-- Header -->
+    <header id="main_header" class="header">
+        <div class="text-vertical-center">
+            <h1>FastTrack</h1>
+            <h3>Efficient &amp; Convenient</h3>
+            <br>
+            <a href="#post_jobs" class="btn btn-dark btn-lg">Post a Job</a>
+        </div>
+    </header>
+    {% endblock %}
+
+    {% block content %}    
+    <br>
+    <section id="post_jobs" class="post_jobs">
+    <div class="container">
+        <div class="row">
+            <div class = "col-lg-6">
+                <div id = "customer_post">
+                    <h2 style="text-align:center">Customers</h2>
+                    <form>
+                        START Destination:
+                        <input type="text" name="START_DEST">
+                        <br><br>
+                        END Destination:
+                        <input type="text" name="END_DEST">
+                        <br><br>                
+                        Pickup Date:
+                        <input type="date" name="pickup_date">
+                        <br><br>
+                        Pickup Time:
+                        <input type="time" name="pickup_time">
+                        <br><br>
+                        <div class="container">
+                            <div class="row search_post_buttons">
+                                <a href="#" class="btn btn-lg btn-dark">Post</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    {% endblock %}
+    
+</body>    
