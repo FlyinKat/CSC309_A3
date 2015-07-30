@@ -1,61 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="style.css" />
-    <title>{% block title %}FastTrack{% endblock %}</title>
-</head>
+{% extends "base.html" %}
 
 <body>
-    <h1>FastTrack Main Page</h1>
+    {% block content %}
+    <div id = "customer">
+        <h2>Customer</h2>
+        <form>
+            START Destination:
+            <input type="text" name="START_DEST">
+            <br>
+            END Destination:
+            <input type="text" name="END_DEST">
+            <br>                
+            Pickup Date:
+            <input type="date" name="pickup_date">
+            <br>
+            Pickup Time:
+            <input type="time" name="pickup_time">
+            <br>
+            <button type="button">SEARCH</button>
+            <button type="button">POST</button>
+        </form>
+    </div>
+    <br>
     <hr>
-    <button type="button">REGISTER</button>
-    <button type="button">LOGIN</button>
+    <div id = "courier">
+        <h2>Courier</h2>
+        <form>
+            START Destination:
+            <input type="text" name="START_DEST">
+            <br>
+            END Destination:
+            <input type="text" name="END_DEST">
+            <br>                
+            Pickup Date:
+            <input type="date" name="pickup_date">
+            <br>
+            Pickup Time:
+            <input type="time" name="pickup_time">
+            <br>
+            <button type="button">SEARCH</button>
+            <button type="button">POST</button>
+        </form>
+    </div>
+    <br>
     <hr>
-    <div id="content">
-        {% block content %}
-        <div id = "customer">
-            <h2>Customer</h2>
-            <form>
-                START Destination:
-                <input type="text" name="START_DEST">
-                <br>
-                END Destination:
-                <input type="text" name="END_DEST">
-                <br>                
-                Pickup Date:
-                <input type="date" name="pickup_date">
-                <br>
-                Pickup Time:
-                <input type="time" name="pickup_time">
-                <br>
-                <button type="button">SEARCH</button>
-                <button type="button">POST</button>
-            </form>
-        </div>
-        <br>
-        <hr>
-        <div id = "courier">
-            <h2>Courier</h2>
-            <form>
-                START Destination:
-                <input type="text" name="START_DEST">
-                <br>
-                END Destination:
-                <input type="text" name="END_DEST">
-                <br>                
-                Pickup Date:
-                <input type="date" name="pickup_date">
-                <br>
-                Pickup Time:
-                <input type="time" name="pickup_time">
-                <br>
-                <button type="button">SEARCH</button>
-                <button type="button">POST</button>
-            </form>
-        </div>
-        <br>
-        <hr>
-        {% endblock %}
+    {% endblock %}
     </div>
 </body>
 </html>

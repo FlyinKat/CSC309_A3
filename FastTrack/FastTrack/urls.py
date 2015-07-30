@@ -22,4 +22,12 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^$', 'ft.views.home', name='home'),
     url(r'^$', 'home.views.index'),
+    
+    url(r'^login/$', 'FastTrack.views.login'),
+    url(r'^logout/$', 'FastTrack.views.logout'),
+    url(r'^auth/$', 'FastTrack.views.auth_view'),
+    url(r'^loggedin/$', 'FastTrack.views.loggedin'),
+    url(r'^invalid/$', 'FastTrack.views.invalid_login'),
+    url(r'^register/$', 'FastTrack.views.register_user'),
+    url(r'^register_success/$', 'FastTrack.views.register_success'),
 ]
