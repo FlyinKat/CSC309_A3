@@ -15,19 +15,20 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Courier',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
-                ('courierID', models.CharField(max_length=200)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('courierID', models.IntegerField(default=0)),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
             name='CourierListing',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
-                ('courierListingID', models.CharField(max_length=200)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('courierListingID', models.IntegerField(default=0)),
                 ('startLocation', models.CharField(max_length=200)),
                 ('endLocation', models.CharField(max_length=200)),
-                ('arrivalTime', models.DateTimeField(default=0)),
+                ('arrivalDate', models.DateField(default=0)),
+                ('arrivalTime', models.TimeField(default=0)),
                 ('status', models.BooleanField()),
                 ('poster', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
@@ -35,7 +36,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Customer',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
                 ('customerID', models.IntegerField(default=0)),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
@@ -43,11 +44,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CustomerListing',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
                 ('customerListingID', models.IntegerField(default=0)),
                 ('startLocation', models.CharField(max_length=200)),
                 ('endLocation', models.CharField(max_length=200)),
-                ('arrivalTime', models.DateTimeField(default=0)),
+                ('arrivalDate', models.DateField(default=0)),
+                ('arrivalTime', models.TimeField(default=0)),
                 ('status', models.BooleanField()),
                 ('poster', models.ForeignKey(to='ft.Customer')),
             ],
@@ -55,7 +57,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Rating',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
                 ('comment', models.CharField(max_length=200)),
                 ('rating', models.IntegerField(default=0)),
                 ('courier', models.ForeignKey(to='ft.Courier')),

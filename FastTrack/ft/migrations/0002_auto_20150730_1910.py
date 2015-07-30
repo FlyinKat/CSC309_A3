@@ -7,13 +7,18 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ft', '0002_auto_20150729_1042'),
+        ('ft', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='courierlisting',
-            name='courierListingID',
-            field=models.IntegerField(default=0),
+            name='status',
+            field=models.BooleanField(default=True),
+        ),
+        migrations.AlterField(
+            model_name='customerlisting',
+            name='status',
+            field=models.BooleanField(default=True),
         ),
     ]

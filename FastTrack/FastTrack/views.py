@@ -42,7 +42,7 @@ def register_user(request):
     args.update(csrf(request))
 
     args['form'] = UserCreationForm()
-    print args
+    print(args)
     return render_to_response('registration/register.html', args)
 
 def register_success(request):
