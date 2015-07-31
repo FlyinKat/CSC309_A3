@@ -5,6 +5,7 @@ from .models import *
 from .serializers import *
 from .forms import *
 from django.contrib.auth.decorators import login_required
+from django.views.generic import DetailView
 
 # Create your views here.
 
@@ -48,9 +49,15 @@ class CustomerListingList(generics.ListCreateAPIView):
     queryset = CustomerListing.objects.all()
     serializer_class = CustomerListingSerializer
 
-class CustomerListingDetail(generics.RetrieveUpdateDestroyAPIView):
+class CustomerListingDetail(DetailView):
+    context_object_name = 'CustomerListing'
     queryset = CustomerListing.objects.all()
-    serializer_class = CustomerListingSerializer
+    template_name = 'detail/customerListingdetail.html'
+    
+class CourierListingDetail(DetailView):
+    context_object_name = 'CourierListing'
+    queryset = CourierListing.objects.all()
+    template_name = 'detail/courierListingdetail.html'
     
 class CustomerListingSearch(generics.ListAPIView):
     serializer_class = CustomerListingSerializer

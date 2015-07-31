@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'ft',
     'rest_framework',
     'home',
-    'userprofile',
+    #'userprofile',
     'social_auth',
 
 

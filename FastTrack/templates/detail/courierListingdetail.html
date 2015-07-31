@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Courier Posting</h2>
+    <ul>
+        <li>{{ CourierListing.itemInfo }}</li>
+        <li>{{ CourierListing.startLocation }}</li>
+        <li>{{ CourierListing.endLocation }}</li>
+        <li>{{ CourierListing.arrivalDate }}</li>
+        <li>{{ CourierListing.arrivalTime }}</li>
+    </ul>
+{% endblock %}

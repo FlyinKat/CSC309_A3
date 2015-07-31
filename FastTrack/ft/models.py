@@ -23,6 +23,7 @@ class CustomerListing(models.Model):
     endLocation = models.CharField(max_length=200)
     arrivalDate = models.DateField(default=0)
     arrivalTime = models.TimeField(default=0)
+    itemInfo = models.CharField(max_length=200, null=True)
     status = models.BooleanField(default=True)
     poster = models.ForeignKey(Customer, null=True)
 
@@ -32,5 +33,6 @@ class CourierListing(models.Model):
     endLocation = models.CharField(max_length=200)
     arrivalDate = models.DateField(default=0)
     arrivalTime = models.TimeField(default=0)
+    itemInfo = models.CharField(max_length=200, null=True)
     status = models.BooleanField(default=True)
     poster = models.ForeignKey(Courier, null=True)
