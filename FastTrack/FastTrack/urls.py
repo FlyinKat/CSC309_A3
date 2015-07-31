@@ -34,4 +34,11 @@ urlpatterns = [
     url(r'^search_trips/$', 'FastTrack.views.search_trips'),
     url(r'^post_jobs/$', 'FastTrack.views.post_jobs'),
     url(r'^post_trips/$', 'FastTrack.views.post_trips'),
+     url(r'^profile/$', 'userprofile.views.user_profile'),
+    url(r'^resetpassword/passwordsent/$', 'django.contrib.auth.views.password_reset_done', name='password_reset_done'),
+    url(r'^resetpassword/$', 'django.contrib.auth.views.password_reset', name='password_reset'),
+    url(r'^reset/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$', 'django.contrib.auth.views.password_reset_confirm', name='password_reset_confirm'),
+    url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
+    url('', include('social_auth.urls')),
+
 ]

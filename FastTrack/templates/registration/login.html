@@ -29,8 +29,9 @@
     </form>
   </div>
 
-  <div class="cta"><a href="#">Forgot your password?</a></div>
+  <div class="cta"><a href="/resetpassword/">Forgot your password?</a></div>
 </div>
-
+    <p><a href="{% url 'socialauth_begin' 'google-oauth2' %}" class="primarylink">Login using your Google account.</a></p>
+    <p><a href="{% url 'socialauth_begin' 'facebook' %}" class="primarylink">login using your Facebook account.</a></p>
 </body>
 </html>
