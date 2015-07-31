@@ -21,12 +21,13 @@ def createCustomerListing(request):
         form = CreateCustomerListingForm(request.POST)
         if form.is_valid():
             newCustomerListing = form.save(commit=False)
-            newCustomerListing.customer = Customer.objects.filter(user=request.user)
+            newCustomerListing.customer = Customer.objects.get(user=request.user)
+            newCustomerListing = form.save()
         #change to redirect to new created listing page later
         return redirect(createCustomerListing)
     else:
         form = CreateCustomerListingForm()
-    return render(request, 'search/search_jobs.html', {'form': form})
+    return render(request, 'post/post_jobs.html', {'form': form})
 
 class CustomerListingList(generics.ListCreateAPIView):
     queryset = CustomerListing.objects.all()

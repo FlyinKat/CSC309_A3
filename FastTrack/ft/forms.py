@@ -1,6 +1,7 @@
-from django import ModelForm
+from django.forms import ModelForm
+from .models import *
 
-class CreateCustomerListingForm(forms.ModelForm):
+class CreateCustomerListingForm(ModelForm):
     class Meta:
         model = CustomerListing
         exclude = ['customerListingID', 'status', 'poster']

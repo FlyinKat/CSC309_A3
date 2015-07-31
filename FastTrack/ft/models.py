@@ -24,7 +24,7 @@ class CustomerListing(models.Model):
     arrivalDate = models.DateField(default=0)
     arrivalTime = models.TimeField(default=0)
     status = models.BooleanField(default=True)
-    poster = models.ForeignKey(Customer)
+    poster = models.ForeignKey(Customer, null=True)
 
 class CourierListing(models.Model):
     courierListingID = models.IntegerField(default=0)
