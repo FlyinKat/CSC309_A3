@@ -40,7 +40,21 @@ INSTALLED_APPS = (
     'ft',
     'rest_framework',
     'home',
+    'userprofile',
+    'social_auth',
+
+
 )
+
+GOOGLE_OAUTH2_CLIENT_ID = '910359372084-95asntopfp3jep5k49tgnn5rhf2ahult.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET = 'CgIAl9Z80LAnG06C2O-DchuY'
+
+FACEBOOK_APP_ID = '849571741793208'
+FACEBOOK_API_SECRET='ddb3f44ba266fa0a5972863a45d804fb'
+FACEBOOK_EXTENDED_PERMISSION = ['email']
+
+LOGIN_REDIRECT_URL = '/'
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -115,3 +129,25 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
+)
+
+AUTHENTICATION_BACKENDS = (
+
+    'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'django.contrib.auth.backends.ModelBackend',
+
+)
