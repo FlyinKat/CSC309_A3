@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Job Posting</h2>
+    <ul>
+        <li>{{ CustomerListing.itemInfo }}</li>
+        <li>{{ CustomerListing.startLocation }}</li>
+        <li>{{ CustomerListing.endLocation }}</li>
+        <li>{{ CustomerListing.arrivalDate }}</li>
+        <li>{{ CustomerListing.arrivalTime }}</li>
+    </ul>
+{% endblock %}
