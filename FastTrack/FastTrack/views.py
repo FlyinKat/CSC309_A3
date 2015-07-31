@@ -16,7 +16,7 @@ def auth_view(request):
 
     if user is not None:
         auth.login(request, user)
-        return HttpResponseRedirect('/home')
+        return HttpResponseRedirect('/#')
     else:
         return HttpResponseRedirect('/invalid')
 
@@ -31,9 +31,9 @@ def logout(request):
     auth.logout(request)
     return render_to_response('registration/logout.html')
 
-def register_user(request):
+ef register_user(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = MyForms(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/register_success')
@@ -41,8 +41,8 @@ def register_user(request):
     args = {}
     args.update(csrf(request))
 
-    args['form'] = UserCreationForm()
-    print(args)
+    args['form'] = MyForms()
+    print args
     return render_to_response('registration/register.html', args)
 
 def register_success(request):
