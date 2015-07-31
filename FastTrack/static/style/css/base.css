@@ -99,30 +99,35 @@ hr.small {
     margin:10px;
 }
 
-/* Customer & Courier Forms - Main Page */
+/* Customer & Courier Forms */
 
-.container input[name="START_DEST"]{
+.container input[name="startLocation"]{
         width: 100%;
         clear: both;
 }
 
-.container input[name="END_DEST"]{
+.container input[name="endLocation"]{
         width: 100%;
         clear: both;
 }
 
-.container input[name="pickup_date"]{
+.container input[name="arrivalDate"]{
         width: 100%;
         clear: both;
 }
 
-.container input[name="pickup_time"]{
+.container input[name="arrivalTime"]{
         width: 100%;
         clear: both;
 }
 
 .col-lg-6{
     width: 50%;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
 }
 
 .search_post_buttons {
