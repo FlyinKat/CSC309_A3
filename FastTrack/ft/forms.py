@@ -1,8 +1,15 @@
 from django.forms import ModelForm
+from django import forms
 from .models import *
 
 class CreateCustomerListingForm(ModelForm):
     class Meta:
         model = CustomerListing
         exclude = ['customerListingID', 'status', 'poster']
+        fields = ['startLocation', 'endLocation', 'arrivalDate', 'arrivalTime']
+        
+class CreateCourierListingForm(ModelForm):
+    class Meta:
+        model = CourierListing
+        exclude = ['CourierListingID', 'status', 'poster']
         fields = ['startLocation', 'endLocation', 'arrivalDate', 'arrivalTime']

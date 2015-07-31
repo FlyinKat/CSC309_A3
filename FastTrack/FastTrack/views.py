@@ -31,7 +31,7 @@ def logout(request):
     auth.logout(request)
     return render_to_response('registration/logout.html')
 
-ef register_user(request):
+def register_user(request):
     if request.method == 'POST':
         form = MyForms(request.POST)
         if form.is_valid():
@@ -42,7 +42,7 @@ ef register_user(request):
     args.update(csrf(request))
 
     args['form'] = MyForms()
-    print args
+    print (args)
     return render_to_response('registration/register.html', args)
 
 def register_success(request):

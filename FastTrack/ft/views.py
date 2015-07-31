@@ -4,7 +4,6 @@ from rest_framework import generics
 from .models import *
 from .serializers import *
 from .forms import *
-from django.views.generic.edit import FormView
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -21,14 +20,30 @@ def createCustomerListing(request):
         form = CreateCustomerListingForm(request.POST)
         if form.is_valid():
             newCustomerListing = form.save(commit=False)
-            newCustomerListing.customer = Customer.objects.get(user=request.user)
+            #need to check if user is customer
+            newCustomerListing.poster = Customer.objects.get(user=request.user)
             newCustomerListing = form.save()
-        #change to redirect to new created listing page later
-        return redirect(createCustomerListing)
+            #change to redirect to new created listing page later
+            return redirect(createCustomerListing)
     else:
         form = CreateCustomerListingForm()
     return render(request, 'post/post_jobs.html', {'form': form})
 
+@login_required 
+def createCourierListing(request):
+    if request.method == 'POST':
+        form = CreateCourierListingForm(request.POST)
+        if form.is_valid():
+            newCourierListing = form.save(commit=False)
+            #need to check if user is courier
+            newCourierListing.poster = Courier.objects.get(user=request.user)
+            newCourierListing = form.save()
+            #change to redirect to new created listing page later
+            return redirect(createCourierListing)
+    else:
+        form = CreateCourierListingForm()
+    return render(request, 'post/post_trips.html', {'form': form})    
+    
 class CustomerListingList(generics.ListCreateAPIView):
     queryset = CustomerListing.objects.all()
     serializer_class = CustomerListingSerializer

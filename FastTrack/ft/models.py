@@ -33,4 +33,4 @@ class CourierListing(models.Model):
     arrivalDate = models.DateField(default=0)
     arrivalTime = models.TimeField(default=0)
     status = models.BooleanField(default=True)
-    poster = models.ForeignKey(User)
+    poster = models.ForeignKey(Courier, null=True)
