@@ -6,10 +6,10 @@ class CreateCustomerListingForm(ModelForm):
     class Meta:
         model = CustomerListing
         exclude = ['customerListingID', 'status', 'poster']
-        fields = ['startLocation', 'endLocation', 'arrivalDate', 'arrivalTime']
+        fields = ['itemInfo', 'startLocation', 'endLocation', 'arrivalDate', 'arrivalTime']
         
 class CreateCourierListingForm(ModelForm):
     class Meta:
         model = CourierListing
         exclude = ['CourierListingID', 'status', 'poster']
-        fields = ['startLocation', 'endLocation', 'arrivalDate', 'arrivalTime']
+        fields = ['itemInfo', 'startLocation', 'endLocation', 'arrivalDate', 'arrivalTime']

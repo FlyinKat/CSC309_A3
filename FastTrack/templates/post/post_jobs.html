@@ -23,6 +23,9 @@
                 <div id = "customer_post">
                     <h2 style="text-align:center">Customers</h2>
                     <form method="post" action="">{% csrf_token %}
+                        DELIVERY Details:
+                        <input type="text" name="itemInfo">
+                        <br><br>
                         START Destination:
                         <input type="text" name="startLocation">
                         <br><br>
