@@ -1,8 +1,12 @@
-{% extends "admin/base.html" %}
+{% extends "base.html" %}
 
-{% block content %}
 
-    <h2>Invalid username or password!</h2>
-    <p>Click <a href="/login/">here</a> to login again. </p>
+{% block header %}
+    <header class="header">
+        <div class="text-vertical-center">
+            <h2>Invalid username or password!</h2>
+            <p>Click <a href="/login/">here</a> to log in again.</p>
+        </div>
+    </header>
 
 {% endblock %}
