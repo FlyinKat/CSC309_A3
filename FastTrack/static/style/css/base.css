@@ -2,10 +2,8 @@ html,
 body {
     width: 100%;
     height: 100%;
-}
-
-body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    overflow-x: hidden;
 }
 
 .text-vertical-center {
@@ -70,17 +68,24 @@ hr.small {
     -o-background-size: cover;
 }
 
-#login_header {
-    display: table;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: url(../img/bg.jpg) no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    opacity: 0.5;
+/* Login */
+
+.container input[id="username"]{
+        width: 10%;
+        clear: both;
+}
+
+.container input[id="password"]{
+        width: 10%;
+        clear: both;
+}
+
+label {
+    width: 100px;
+}
+
+.cta h5 {
+    color: #B20000;
 }
 
 /* About */
