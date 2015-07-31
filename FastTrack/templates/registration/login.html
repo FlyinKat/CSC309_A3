@@ -1,37 +1,37 @@
-{% load static %}
+{% extends "base.html" %}
+    
+<body>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>FastTrack Login</title>
-    <link href="{% static 'style/css/login.css' %}" rel="stylesheet">
-
-</head>
-<body bgcolor="#D8D8D8">
-
-	<!-- FastTrack heading -->
-<div class="FT-title">
-  <h1>Sign In</h1>
-</div>
-
-<!-- Form Module-->
-<div class="module form-module">
-    <div class="toggle">
-
-  </div>
-  <div class="form">
-    <h2>Login to your account</h2>
-    <form method="post" action="/auth/">{% csrf_token %}
-      <input type="text" name="username" placeholder="Username" value="" id="username">
-      <input type="password" name="password" placeholder="Password" value="" id="password">
-      <button type="submit" value="login">login</button>
-    </form>
-  </div>
-
-  <div class="cta"><a href="/resetpassword/">Forgot your password?</a></div>
-</div>
-    <p><a href="{% url 'socialauth_begin' 'google-oauth2' %}" class="primarylink">Login using your Google account.</a></p>
-    <p><a href="{% url 'socialauth_begin' 'facebook' %}" class="primarylink">login using your Facebook account.</a></p>
+    <!-- Header -->
+    {% block header %}
+    <header class="header">
+        <div class="text-vertical-center" >
+            <!-- Form Module-->
+            <div class="module form-module">
+                <div class="toggle"></div>
+                <div class="form" id="login_form">
+                    <div class="container">
+                    <form method="post" action="/auth/">{% csrf_token %}
+                        <label>Username:</label>
+                        <input type="text" name="username" placeholder="Username" value="" id="username">
+                        <br>
+                        <label>Password:</label>
+                        <input type="password" name="password" placeholder="Password" value="" id="password">
+                        <br>
+                        <div class="cta"><a href="/resetpassword/"><h5><u>Forgot your password?</u></h5></a></div>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="{% url 'socialauth_begin' 'google-oauth2' %}" class="primarylink"><i class="fa fa-google fa-fw fa-2x"></i>Log in with Google</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'socialauth_begin' 'facebook' %}" class="primarylink"><i class="fa fa-facebook fa-fw fa-2x"></i>Log in with Facebook</a>
+                            </li>
+                        </ul>
+                        <button type="submit" value="Login" class="btn btn-dark btn-lg">Log In</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+    </header>
+    {% endblock %}
 </body>
-</html>
