@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 <body>
-    
+        
     {% block header %}
     <!-- Header -->
     <header id="main_header" class="header">
@@ -63,5 +63,16 @@
     </div>
     <br><br><br><br>
     {% endblock %}
-    </div>
+
+    {% block login %}
+    <aside class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <a href="#" class="btn btn-lg btn-light">Sign up!</a>
+                <a href="#" class="btn btn-lg btn-dark">Login</a>
+            </div>
+        </div>
+    </aside>
+    {% endblock %}
+    
 </body>
