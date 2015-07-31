@@ -1,8 +1,12 @@
-{% extends "admin/base.html" %}
+{% extends "base.html" %}
 
-{% block content %}
-
-    <h2>Hi {{ full_name }}, you are now logged in!</h2>
-    <p>Click <a href="/logout/">here</a> to logout. </p>
+{% block header %}
+    <header class="header">
+        <div class="text-vertical-center">
+            <h2>Hello, {{ full_name }}!</h2>
+            <p>Click <a href="/">here</a> to return to homepage.</p>
+            <p>Click <a href="/logout/">here</a> to logout. </p>
+        </div>
+    </header>
 
 {% endblock %}

@@ -88,6 +88,13 @@ label {
     color: #B20000;
 }
 
+/* Required Input Fields */
+
+input:required:focus {
+    border: 1px solid red;
+    outline: none;
+}
+
 /* About */
 
 .about {
