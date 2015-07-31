@@ -1,18 +1,36 @@
-{% extends "admin/base.html" %}
+{% load static %}
 
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FastTrack Login</title>
+    <link href="{% static 'style/css/login.css' %}" rel="stylesheet">
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+</head>
+<body bgcolor="#D8D8D8">
 
-<form method="post" action="/auth/">{% csrf_token %}
-    <label for="username">Username:</label>
-    <input type="text" name="username" value="" id="username">
-    <label for="password">Password:</label>
-    <input type="password" name="password" value="" id="password">
+	<!-- FastTrack heading -->
+<div class="FT-title">
+  <h1>Sign In</h1>
+</div>
 
-    <input type="submit" value="login" />
-</form>
+<!-- Form Module-->
+<div class="module form-module">
+    <div class="toggle">
 
-{% endblock %}
+  </div>
+  <div class="form">
+    <h2>Login to your account</h2>
+    <form method="post" action="/auth/">{% csrf_token %}
+      <input type="text" name="username" placeholder="Username" value="" id="username">
+      <input type="password" name="password" placeholder="Password" value="" id="password">
+      <button type="submit" value="login">login</button>
+    </form>
+  </div>
+
+  <div class="cta"><a href="#">Forgot your password?</a></div>
+</div>
+
+</body>
+</html>
