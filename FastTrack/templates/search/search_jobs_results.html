@@ -21,7 +21,7 @@
             <div class = "col-lg-6">
                 {% for r in results %}
                     <li>
-                        <a href="#fill in later">
+                        <a href= "{% url 'customerListingDetail' pk=r.pk %}">
                         <div>
                             {{ r.startLocation }}
                        

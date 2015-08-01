@@ -9,7 +9,5 @@ urlpatterns = [
     url(r'^tripPostings/(?P<pk>[0-9]+)/$', views.courierListingDetail, name='courierListingDetail'),
     url('^jobPosting/search/$', views.customerListingSearch, name='customerListingSearch'),
     url('^jobPosting/search/results$', views.customerListingSearchResults, name='customerListingSearchResults'),
-    url(r'^jobPostings/create$', views.createCustomerListing , name='createCustomerListing' ),
-    url(r'^tripPostings/create$', views.createCourierListing , name='createCourierListing' ),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

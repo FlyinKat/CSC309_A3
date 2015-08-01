@@ -9,5 +9,27 @@
         <li>{{ CustomerListing.arrivalDate }}</li>
         <li>{{ CustomerListing.arrivalTime }}</li>
         <li>{{ contactInfo }}</li>
+        
+        <h3>Recommended Jobs<h3>
+        {% if recommend %}
+        {% for r in recommend %}
+                    <li>
+                        <a href= "{% url 'customerListingDetail' pk=r.pk %}">
+                        <div>
+                            {{ r.startLocation }}
+                       
+                            {{ r.endLocation }}
+                        
+                            {{ r.arrivalDate }}
+                       
+                            {{ r.arrivalTime }}
+                        </div>
+                        </a>
+                    </li>
+                {% endfor %}
+        {% else %}
+               No recommendations
+        {% endif %}
+
     </ul>
 {% endblock %}
