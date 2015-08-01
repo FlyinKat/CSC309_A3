@@ -25,8 +25,7 @@ def createCustomerListing(request):
             #need to check if user is customer
             newCustomerListing.poster = Customer.objects.get(user=request.user)
             newCustomerListing = form.save()
-            #change to redirect to new created listing page later
-            return redirect(CustomerListingList)
+            return redirect(newCustomerListing.get_absolute_url())
     else:
         form = CreateCustomerListingForm()
     return render(request, 'post/post_jobs.html', {'form': form})
@@ -40,22 +39,21 @@ def createCourierListing(request):
             #need to check if user is courier
             newCourierListing.poster = Courier.objects.get(user=request.user)
             newCourierListing = form.save()
-            #change to redirect to new created listing page later
-            return redirect(CourierListingDetail)
+            return redirect(newCourierListing.get_absolute_url())
     else:
         form = CreateCourierListingForm()
     return render(request, 'post/post_trips.html', {'form': form})    
 
-class CustomerListingDetail(DetailView):
-    context_object_name = 'CustomerListing'
-    queryset = CustomerListing.objects.all()
-    template_name = 'detail/customerListingdetail.html'
-    
-class CourierListingDetail(DetailView):
-    context_object_name = 'CourierListing'
-    queryset = CourierListing.objects.all()
-    template_name = 'detail/courierListingdetail.html'
-    
+def customerListingDetail(request, pk):
+    results = CustomerListing.objects.get(pk=pk)
+    contactInfo = results.poster.user.email
+    return render(request, 'detail/customerListingdetail.html', {'CustomerListing': results, 'contactInfo':contactInfo})
+
+def courierListingDetail(request, pk):
+    results = CourierListing.objects.get(pk=pk)
+    contactInfo = results.poster.user.email
+    return render(request, 'detail/courierListingdetail.html', {'CourierListing': results, 'contactInfo':contactInfo})    
+      
 def customerListingSearch(request):
     form = CustomerListingSearchForm()
     return render(request, 'search/search_jobs.html', {'form': form})

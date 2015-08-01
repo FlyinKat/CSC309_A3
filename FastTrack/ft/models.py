@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 # Create your models here
 
@@ -26,6 +27,9 @@ class CustomerListing(models.Model):
     itemInfo = models.CharField(max_length=200, null=True)
     status = models.BooleanField(default=True)
     poster = models.ForeignKey(Customer, null=True)
+    
+    def get_absolute_url(self):
+        return reverse('ft.views.customerListingDetail', args=[str(self.pk)])
 
 class CourierListing(models.Model):
     courierListingID = models.IntegerField(default=0)
@@ -36,3 +40,6 @@ class CourierListing(models.Model):
     itemInfo = models.CharField(max_length=200, null=True)
     status = models.BooleanField(default=True)
     poster = models.ForeignKey(Courier, null=True)
+    
+    def get_absolute_url(self):
+        return reverse('ft.views.courierListingDetail', args=[str(self.pk)])

@@ -16,21 +16,27 @@
 
     {% block content %}    
     <br>
-    {% for r in results %}
-        <li>
-            <a href="#fill in later">
-            <div>
-                {{ r.startLocation }}
-           
-                {{ r.endLocation }}
-            
-                {{ r.arrivalDate }}
-           
-                {{ r.arrivalTime }}
+      <div class="container">
+        <div class="row">
+            <div class = "col-lg-6">
+                {% for r in results %}
+                    <li>
+                        <a href="#fill in later">
+                        <div>
+                            {{ r.startLocation }}
+                       
+                            {{ r.endLocation }}
+                        
+                            {{ r.arrivalDate }}
+                       
+                            {{ r.arrivalTime }}
+                        </div>
+                        </a>
+                    </li>
+                {% endfor %}
+                </div>
             </div>
-            </a>
-        </li>
-    {% endfor %}
+        </div
 
     <br><br><br><br>
     {% endblock %}
