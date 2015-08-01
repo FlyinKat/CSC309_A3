@@ -22,22 +22,22 @@
             <div class = "col-lg-6">
                 <div id = "couriers_search">
                     <h2 style="text-align:center">Customers</h2>
-                    <form>
+                    <form method="get" action="results">
                         START Destination:
-                        <input type="text" name="START_DEST">
+                        <input type="text" name="startLocation">
                         <br><br>
                         END Destination:
-                        <input type="text" name="END_DEST">
+                        <input type="text" name="endLocation">
                         <br><br>                
                         Pickup Date:
-                        <input type="date" name="pickup_date">
+                        <input type="date" name="arrivalDate">
                         <br><br>
                         Pickup Time:
-                        <input type="time" name="pickup_time">
+                        <input type="time" name="arrivalTime">
                         <br><br>
                         <div class="container">
                             <div class="row search_post_buttons">
-                                <a href="#" class="btn btn-lg btn-dark">Search</a>
+                                <input type="submit" value="Search" class="btn btn-lg btn-dark">
                             </div>
                         </div>
                     </form>

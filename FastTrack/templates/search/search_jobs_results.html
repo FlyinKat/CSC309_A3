@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+<body>
+
+    {% block header %}
+    <!-- Header -->
+    <header id="main_header" class="header">
+        <div class="text-vertical-center">
+            <h1>FastTrack</h1>
+            <h3>Efficient &amp; Convenient</h3>
+            <br>
+            <a href="#search_jobs" class="btn btn-dark btn-lg">Search for Jobs</a>
+        </div>
+    </header>
+    {% endblock %}
+
+    {% block content %}    
+    <br>
+    {% for r in results %}
+        <li>
+            <a href="#fill in later">
+            <div>
+                {{ r.startLocation }}
+           
+                {{ r.endLocation }}
+            
+                {{ r.arrivalDate }}
+           
+                {{ r.arrivalTime }}
+            </div>
+            </a>
+        </li>
+    {% endfor %}
+
+    <br><br><br><br>
+    {% endblock %}
+    
+</body>    
