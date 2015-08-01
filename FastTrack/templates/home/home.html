@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+<body>
+        
+    {% block header %}
+    <!-- Header -->
+    <header id="main_header" class="header">
+        <div class="text-vertical-center">
+            <h1>FastTrack</h1>
+            <h3>Efficient &amp; Convenient</h3>
+            <br>
+            <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+        </div>
+    </header>
+    {% endblock %}
+
+    {% block about %}
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>About Us</h2>
+                    <p class="lead">Have you ever not purchased a good because it wasn’t exactly the most convenient to bring it home, or either shipping fees would end up being more expensive than the good itself? </p>
+                    <p class="lead">FastTrack is a community-based delivery service that is not only cost-effective, but also runs on a flexible schedule. Being in a nearby geographical radius from a certain location, people are able to connect with one another and share delivery services among the community through this service. FastTrack provides a wide range of delivery services, from requesting someone to do a coffee run, or buying groceries from the supermarket to delivering a product from a friend’s house to the customer.</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+    {% endblock %}
+    
+    {% block content %}
+    <br>
+    <div class="container">
+        <div class="row text-center">
+            <div class = "col-lg-6">
+                <div id = "customer">
+                    <h2>Customers</h2>
+                    <br>
+                    <div class="container">
+                        <div class="row search_post_buttons">
+                            <a href="/search_jobs/" class="btn btn-lg btn-light">Search for Jobs</a>
+                            <a href="/post_jobs/" class="btn btn-lg btn-dark">Post a Job</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "col-lg-6">
+                <div id = "courier">
+                    <h2>Couriers</h2>
+                    <br>
+                    <div class="container">
+                        <div class="row search_post_buttons">
+                            <a href="/search_trips/" class="btn btn-lg btn-light">Search for Trips</a>
+                            <a href="/post_trips/" class="btn btn-lg btn-dark">Post a Trip</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    {% endblock %}
+
+    {% block login %}
+    <aside class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <a href="/register/" class="btn btn-lg btn-light">Sign up!</a>
+                <a href="/logout/" class="btn btn-lg btn-dark">Logout</a>
+                <a href="/profile/" class="btn btn-lg btn-dark">Welcome {{ username }}</a>
+
+            </div>
+        </div>
+    </aside>
+    {% endblock %}
+    
+</body>
