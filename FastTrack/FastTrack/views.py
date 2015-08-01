@@ -4,6 +4,26 @@ from django.contrib import auth
 from django.core.context_processors import csrf
 from django.contrib.auth.forms import UserCreationForm
 from .forms import *
+from ft.models import Customer, Courier, UserProfile
+from django.template import RequestContext
+from forms import MyForms
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def Profile(request):
+    #if request.method == 'POST':
+     #   form = MyForms(request.POST, instance=request.user.profile)
+      #  if form.is_valid():
+       #     form.save()
+        #    return HttpResponseRedirect('/loggedin/')
+    #else:
+     #   form = MyForms(instance = request.user.profile)
+    #return render_to_response('Registration/profile.html', {'user_profile': form}, context_instance=RequestContext(request))
+    user_profile = request.user
+    context={"user_profile":user_profile}
+    return render_to_response('Registration/profile.html',context, context_instance=RequestContext(request))
 
 def login(request):
     c = {}
@@ -17,13 +37,15 @@ def auth_view(request):
 
     if user is not None:
         auth.login(request, user)
-        return HttpResponseRedirect('/#')
+        return HttpResponseRedirect('/loggedin')
     else:
         return HttpResponseRedirect('/invalid')
 
 def loggedin(request):
     return render_to_response('registration/loggedin.html', {'full_name':request.user.username})
 
+def home(request):
+    return render_to_response('home/home.html', {'username':request.user.username})
 
 def invalid_login(request):
     return render_to_response('registration/invalid_login.html')
@@ -36,7 +58,19 @@ def register_user(request):
     if request.method == 'POST':
         form = MyForms(request.POST)
         if form.is_valid():
-            form.save()
+             user = form.save()
+            subject = 'Thank You for joining us!'
+            message = 'Welcome to FastTrack, login to post an ad or search for postings to look for courier'
+            from_email = settings.EMAIL_HOST_USER
+            to_list = [user.email]
+            send_mail(subject, message, from_email, to_list, fail_silently=True)
+            if user.regAs == '1':
+                c = Customer(user=user)
+                c.save()
+            else:
+                co = Courier(user=user)
+                co.save()
+
             return HttpResponseRedirect('/register_success')
 
     args = {}
