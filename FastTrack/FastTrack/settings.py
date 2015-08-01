@@ -53,8 +53,13 @@ FACEBOOK_APP_ID = '849571741793208'
 FACEBOOK_API_SECRET='ddb3f44ba266fa0a5972863a45d804fb'
 FACEBOOK_EXTENDED_PERMISSION = ['email']
 
-LOGIN_REDIRECT_URL = '/'
+#LOGIN_REDIRECT_URL = '/'
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'fasttrack.adm@gmail.com'
+EMAIL_HOST_PASSWORD = 'fasttrackadm'
+EMAIL_PORT = 587
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -130,7 +135,13 @@ REST_FRAMEWORK = {
     ]
 }
 
-AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
+
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = '/profile/'
+
+
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
