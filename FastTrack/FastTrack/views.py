@@ -58,7 +58,7 @@ def register_user(request):
     if request.method == 'POST':
         form = MyForms(request.POST)
         if form.is_valid():
-             user = form.save()
+            user = form.save()
             subject = 'Thank You for joining us!'
             message = 'Welcome to FastTrack, login to post an ad or search for postings to look for courier'
             from_email = settings.EMAIL_HOST_USER
