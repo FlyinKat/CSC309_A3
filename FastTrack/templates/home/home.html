@@ -32,6 +32,7 @@
     {% endblock %}
     
     {% block content %}
+    <hr>
     <br>
     <div class="container">
         <div class="row text-center">
@@ -66,12 +67,12 @@
 
     {% block login %}
     <aside class="call-to-action bg-primary">
+        <h3 style="color:#ffffff; text-align:center">Welcome, {{ username }}.</h3>
         <div class="container">
             <div class="row text-center">
-                <a href="/register/" class="btn btn-lg btn-light">Sign up!</a>
+                <a href="/profile/" class="btn btn-lg btn-dark">Profile</a>
                 <a href="/logout/" class="btn btn-lg btn-dark">Logout</a>
-                <a href="/profile/" class="btn btn-lg btn-dark">Welcome {{ username }}</a>
-
+                <a href="/register/" class="btn btn-lg btn-light">Sign up!</a>
             </div>
         </div>
     </aside>
