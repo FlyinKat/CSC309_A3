@@ -113,6 +113,11 @@ input:required:focus {
 
 /* Customer & Courier Forms */
 
+.container input[name="itemInfo"]{
+        width: 100%;
+        clear: both;
+}
+
 .container input[name="startLocation"]{
         width: 100%;
         clear: both;

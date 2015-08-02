@@ -19,25 +19,26 @@
     <section id="search_trips" class="search_trips">
     <div class="container">
         <div class="row">
-            <div class = "col-lg-6">
+            <div class = "col-lg-6 col-centered">
                 <div id = "customer_search">
                     <h2 style="text-align:center">Couriers</h2>
                     <form>
                         START Destination:
-                        <input type="text" name="START_DEST">
+                        <input type="text" name="startLocation">
                         <br><br>
                         END Destination:
-                        <input type="text" name="END_DEST">
+                        <input type="text" name="endLocation">
                         <br><br>                
                         Pickup Date:
-                        <input type="date" name="pickup_date">
+                        <input type="date" name="arrivalDate">
                         <br><br>
                         Pickup Time:
-                        <input type="time" name="pickup_time">
+                        <input type="time" name="arrivalTime">
                         <br><br>
                         <div class="container">
                             <div class="row search_post_buttons">
                                 <a href="#" class="btn btn-lg btn-dark">Search</a>
+                                <a href="/" class="btn btn-lg btn-light">Back</a>
                             </div>
                         </div>
                     </form>
@@ -46,6 +47,7 @@
         </div>
     </div>
     <br><br><br><br>
+    <hr>
     {% endblock %}
     
 </body>    
