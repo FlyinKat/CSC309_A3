@@ -137,6 +137,38 @@ input:required:focus {
         clear: both;
 }
 
+/* Registration Form */
+
+.container input[name="username"]{
+        width: 100%;
+        clear: both;
+}
+
+.container input[name="first_name"]{
+        width: 100%;
+        clear: both;
+}
+
+.container input[name="last_name"]{
+        width: 100%;
+        clear: both;
+}
+
+.container input[name="email"]{
+        width: 100%;
+        clear: both;
+}
+
+.container input[name="password1"]{
+        width: 100%;
+        clear: both;
+}
+
+.container input[name="password2"]{
+        width: 100%;
+        clear: both;
+}
+
 .col-lg-6{
     width: 50%;
 }
