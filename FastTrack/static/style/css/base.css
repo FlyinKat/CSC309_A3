@@ -139,7 +139,7 @@ input:required:focus {
 
 /* Registration Form */
 
-.container input[name="username"]{
+.container input[id="register_username"]{
         width: 100%;
         clear: both;
 }
