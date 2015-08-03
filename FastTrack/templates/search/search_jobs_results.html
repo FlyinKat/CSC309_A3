@@ -75,7 +75,7 @@
                         {% endif %}
 
                         {% if page_obj.has_next %}
-                            <a href="?startLocation={{ sL }}&endLocation={{ eL }}&beforeDate={{ bD }}&afterDate={{ aD }}&page={{ page_obj.next_page_number }}" class="btn btn-lg btn-dark">Next</a><a href="/search_jobs/" class="btn btn-lg btn-light">Back</a>
+                            <a href="?startLocation={{ sL }}&endLocation={{ eL }}&beforeDate={{ bD }}&afterDate={{ aD }}&page={{ page_obj.next_page_number }}" class="btn btn-lg btn-dark">Next</a>
                         {% endif %}
                     </span>
                 </div>
@@ -86,6 +86,10 @@
         {% else %}
             <h3 style="text-align:center">No Jobs Found</h3>
         {% endif %}
+    <br><br>
+        <div class="row text-center">
+            <a href="/search_jobs/" class="btn btn-lg btn-dark">Back</a>
+        </div>
     <br><br>
     <hr>
     </section>
