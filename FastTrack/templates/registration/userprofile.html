@@ -24,14 +24,15 @@
                 <div id = "updateProfile">
                     <h2 style="text-align:center">Update Profile</h2>
                     <br>
-                    {% for field in form %}
-                        {{ field.error }}
-                    {% endfor %}
                     <form action="/userprofile/" method="post">{% csrf_token %}
-                        {{ form.as_p }}
+                    {{ form.as_p }}
+                    {% for field in form %}
+                        <p>{{ field.error.as_text }}</p>
+                    {% endfor %}
                     <br>
                     <div class="row text-center">
                         <input type="submit" value="Update" class="btn btn-lg btn-dark"/>
+                        <a href="/profile/" class="btn btn-lg btn-light">Back</a>
                     </div>
                     </form>
                 </div>
