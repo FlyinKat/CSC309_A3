@@ -19,6 +19,11 @@ body {
     font-weight: 700;
 }
 
+.center {
+    margin: 0 auto;
+    width: 80%;
+}
+
 /* Custom Button Styles */
 
 .btn-dark {
