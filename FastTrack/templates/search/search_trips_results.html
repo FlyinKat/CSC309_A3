@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+<body>
+
+{% block header %}
+    <!-- Header -->
+    <header id="main_header" class="header">
+        <div class="text-vertical-center">
+            <h1>FastTrack</h1>
+            <h3>Efficient &amp; Convenient</h3>
+            <br>
+            <a href="#search_results" class="btn btn-dark btn-lg">Search Results</a>
+        </div>
+    </header>
+    {% endblock %}
+
+    {% block content %}    
+    <section id="search_results" class="search_results">
+        <br><br>
+        <h2 style="text-align:center">Search Results</h2>
+        <br><br>
+        {% if results %}
+            <div class="container">
+                <div class="center">
+                    <div class="row">
+                        <div class="text-center">
+                            <div class="col-lg-3">
+                            Start Destination
+                            </div>
+                            <div class="col-lg-3">
+                            End Destination
+                            </div>
+                            <div class="col-lg-3">
+                            Pick Up Date
+                            </div>
+                            <div class="col-lg-3">
+                            Pick Up Time
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        {% for r in results %}
+                                <a href= "{% url 'courierListingDetail' pk=r.pk %}">
+                                <div class="text-center">
+                                    <div class="col-lg-3">
+                                    {{ r.startLocation }}
+                                    </div>
+                                    <div class="col-lg-3">
+                                    {{ r.endLocation }}
+                                    </div>
+                                    <div class="col-lg-3">
+                                    {{ r.arrivalDate }}
+                                    </div>
+                                    <div class="col-lg-3">
+                                    {{ r.arrivalTime }}
+                                    </div>
+                                </div>
+                                </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% if is_paginated %}
+            <div class="container">
+                <div class="row text-center">
+                <div class="pagination">
+                    <span class="page-links">
+                        <span class="page-current">
+                            <h4>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</h4>
+                        </span>
+                        <br>
+                        {% if page_obj.has_previous %}
+                            <a href="?startLocation={{ sL }}&endLocation={{ eL }}&beforeDate={{ bD }}&afterDate={{ aD }}&page={{ page_obj.previous_page_number }}" class="btn btn-lg btn-dark">Previous</a>
+                        {% endif %}
+
+                        {% if page_obj.has_next %}
+                            <a href="?startLocation={{ sL }}&endLocation={{ eL }}&beforeDate={{ bD }}&afterDate={{ aD }}&page={{ page_obj.next_page_number }}" class="btn btn-lg btn-dark">Next</a><a href="/search_jobs/" class="btn btn-lg btn-light">Back</a>
+                        {% endif %}
+                    </span>
+                </div>
+                </div>
+            </div>
+            {% endif %}
+        
+        {% else %}
+            <h3 style="text-align:center">No Trips Found</h3>
+        {% endif %}
+    <br><br>
+    <hr>
+    </section>
+    {% endblock %}
+    
+</body>    
