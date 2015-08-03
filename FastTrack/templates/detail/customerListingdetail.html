@@ -1,35 +1,119 @@
 {% extends "base.html" %}
+<body>
 
-{% block content %}
-    <h2>Job Posting</h2>
-    <ul>
-        <li>{{ CustomerListing.itemInfo }}</li>
-        <li>{{ CustomerListing.startLocation }}</li>
-        <li>{{ CustomerListing.endLocation }}</li>
-        <li>{{ CustomerListing.arrivalDate }}</li>
-        <li>{{ CustomerListing.arrivalTime }}</li>
-        <li>{{ contactInfo }}</li>
-        
-        <h3>Recommended Jobs<h3>
+{% block header %}
+    <!-- Header -->
+    <header id="main_header" class="header">
+        <div class="text-vertical-center">
+            <h1>FastTrack</h1>
+            <h3>Efficient &amp; Convenient</h3>
+            <br>
+            <a href="#customer_listing" class="btn btn-dark btn-lg">Customer Listing Details</a>
+        </div>
+    </header>
+    {% endblock %}
+
+    {% block content %}    
+    <section id="customer_listing" class="customer_listing">
+        <br><br>
+        <h2 style="text-align:center">Customer Listing Details</h2>
+        <br>
+        <div class="container">
+            <div class="col-lg-6">
+                <div class="row text-right">
+                    Item Info:   
+                </div>
+                <div class="row text-right">
+                    Start Destination:   
+                </div>            
+                <div class="row text-right">
+                    End Destination:   
+                </div>
+                <div class="row text-right">
+                    Pick Up Date:   
+                </div>
+                <div class="row text-right">
+                    Pick Up Time:   
+                </div>
+                <div class="row text-right">
+                    Contact Info:   
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ CustomerListing.itemInfo }}
+                </div>
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ CustomerListing.startLocation }}
+                </div>            
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ CustomerListing.endLocation }}
+                </div>
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ CustomerListing.arrivalDate }}
+                </div>
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ CustomerListing.arrivalTime }}
+                </div>
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ contactInfo }}
+                </div>
+            </div>
+        </div>
+        <br>
         {% if recommend %}
-        {% for r in recommend %}
-                    <li>
-                        <a href= "{% url 'customerListingDetail' pk=r.pk %}">
-                        <div>
-                            {{ r.startLocation }}
-                       
-                            {{ r.endLocation }}
-                        
-                            {{ r.arrivalDate }}
-                       
-                            {{ r.arrivalTime }}
+        <h2 style="text-align:center">Recommended Jobs</h2>
+        <div class="container">
+            <div class="center">
+                <div class="row">
+                    <div class="text-center">
+                        <div class="col-lg-3">
+                        Start Destination
                         </div>
-                        </a>
-                    </li>
+                        <div class="col-lg-3">
+                        End Destination
+                        </div>
+                        <div class="col-lg-3">
+                        Pick Up Date
+                        </div>
+                        <div class="col-lg-3">
+                        Pick Up Time
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                {% for r in recommend %}
+                    <a href= "{% url 'customerListingDetail' pk=r.pk %}">
+                        <div class="text-center">
+                            <div class="col-lg-3">
+                            {{ r.startLocation }}
+                            </div>
+                            <div class="col-lg-3">
+                            {{ r.endLocation }}
+                            </div>
+                            <div class="col-lg-3">
+                            {{ r.arrivalDate }}
+                            </div>
+                            <div class="col-lg-3">
+                            {{ r.arrivalTime }}
+                            </div>
+                        </div>
+                    </a>
                 {% endfor %}
+                </div>
+            </div>
+        </div>
         {% else %}
-               No recommendations
+            <h4 style="text-align:center">No Recommendations</h4>
         {% endif %}
-
-    </ul>
+        <br>
+        <div class="container">
+            <div class="row text-center">
+                <a href="/search_jobs/" class="btn btn-lg btn-dark">Back</a>
+            </div>
+        </div>
+    <br><br>
+    <hr>
+    </section>
 {% endblock %}
