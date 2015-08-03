@@ -1,7 +1,6 @@
 from django.shortcuts import *
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import *
-from .serializers import *
 from .forms import *
 from django.views.generic import DetailView, ListView
 import models

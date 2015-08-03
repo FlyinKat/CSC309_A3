@@ -11,3 +11,5 @@
 *.pyc
 *.pyc
 FastTrack/ft/views.pyc
+FastTrack/FastTrack/settings.pyc
+FastTrack/ft/views.pyc
