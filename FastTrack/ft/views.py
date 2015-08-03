@@ -20,8 +20,12 @@ def createCustomerListing(request):
             form = CreateCustomerListingForm(request.POST)
             if form.is_valid():
                 newCustomerListing = form.save(commit=False)
-                #need to check if user is customer
-                newCustomerListing.poster = Customer.objects.get(user=request.user)
+                try:
+                    newCustomerListing.poster = Customer.objects.get(user=request.user)
+                except Customer.DoesNotExist:
+                    c = Customer(user=request.user)
+                    c.save()
+                    newCustomerListing.poster = c
                 newCustomerListing = form.save()
                 return redirect(newCustomerListing.get_absolute_url())
         else:
@@ -36,8 +40,12 @@ def createCourierListing(request):
             form = CreateCourierListingForm(request.POST)
             if form.is_valid():
                 newCourierListing = form.save(commit=False)
-                #need to check if user is courier
-                newCourierListing.poster = Courier.objects.get(user=request.user)
+                try:
+                    newCourierListing.poster = Courier.objects.get(user=request.user)
+                except Courier.DoesNotExist:
+                    c = Courier(user=request.user)
+                    c.save()
+                    newCourierListing.poster = c
                 newCourierListing = form.save()
                 return redirect(newCourierListing.get_absolute_url())
         else:
