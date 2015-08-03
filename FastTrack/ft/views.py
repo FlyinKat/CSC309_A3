@@ -76,6 +76,9 @@ def courierListingSearch(request):
 
 def rate(request):
     form = RatingForm()
+    instance = form.save(commit=False)
+    print instance.customer
+    instance.save()
     return render(request, 'rating/rate.html', {'form': form})
 
 class JobSearchResults(ListView):

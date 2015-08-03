@@ -21,20 +21,19 @@
         <div class="row">
             <div class = "col-lg-6 col-centered">
                 <div id = "rate">
+                    <h2 style="text-align:center">Rating</h2>
                     <form method="post" action="">{% csrf_token %}
-                        DELIVERY Details:
+                        Courier:
                         <input type="text" name="courier">
                         <br><br>
-                        Courier:
+                        Customer:
                         <input type="text" name="customer">
                         <br><br>
-                        Customer:
-                        <input type="integer" name="rating">
-                        <br><br>                
                         Rating:
-                        <input type="text" name="comment">
-                        <br><br>
+                        <input type="scale" name="rating">
+                        <br><br>                
                         Comment:
+                        <input type="text" name="comment">
                         <br><br>
                         <div class="container">
                             <div class="row rate_buttons">
