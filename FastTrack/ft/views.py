@@ -62,6 +62,10 @@ def courierListingDetail(request, pk):
 def customerListingSearch(request):
     form = SearchForm()
     return render(request, 'search/search_jobs.html', {'form': form})
+    
+def courierListingSearch(request):
+    form = SearchForm()
+    return render(request, 'search/search_trips.html', {'form': form})
 
 class JobSearchResults(ListView):
     model = models.CustomerListing
