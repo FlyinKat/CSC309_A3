@@ -4,6 +4,7 @@ from .models import *
 from .serializers import *
 from .forms import *
 from django.views.generic import DetailView, ListView
+import models
 
 
 # Create your views here.
@@ -85,4 +86,38 @@ def customerListingSearchResults(request):
     else:
         results = CustomerListing.objects.all()
         return render(request, "search/search_jobs_results.html", {'results': results})
-        
+
+class JobSearchResults(ListView):
+    model = models.CustomerListing
+    template_name = 'search/search_jobs_results.html'  
+    context_object_name = "results"  
+    paginate_by = 5
+    
+    def get_queryset(self):
+        queryset = super(JobSearchResults, self).get_queryset()
+        if self.request.GET.items():
+            if 'startLocation' in self.request.GET:
+                sL = self.request.GET.get('startLocation')
+                if sL is not None and sL != '':
+                    queryset = queryset.filter(startLocation=sL)
+            if 'endLocation' in self.request.GET:
+                eL = self.request.GET.get('endLocation')
+                if eL is not None and eL != '':
+                    queryset = queryset.filter(endLocation=eL)
+            if 'arrivalDate' in self.request.GET:
+                aD = self.request.GET.get('arrivalDate')
+                if aD is not None and aD != '':
+                    queryset = queryset.filter(arrivalDate=aD)
+            if 'arrivalTime' in self.request.GET:
+                aT = self.request.GET.get('arrivalTime')
+                if aT is not None and aT != '':
+                    queryset = queryset.filter(arrivalTime=aT)
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(JobSearchResults, self).get_context_data(**kwargs)
+        context['sL'] = self.request.GET.get('startLocation')   
+        context['eL'] = self.request.GET.get('endLocation')
+        context['aD'] = self.request.GET.get('arrivalDate')
+        context['aT'] = self.request.GET.get('arrivalTime')
+        return context

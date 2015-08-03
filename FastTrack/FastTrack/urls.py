@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from home import views
+from ft.views import *
 
 urlpatterns = [
     url(r'^api/', include('ft.urls')),
@@ -32,7 +33,7 @@ urlpatterns = [
     url(r'^register/$', 'FastTrack.views.register_user'),
     url(r'^register_success/$', 'FastTrack.views.register_success'),
     url(r'^search_jobs/$', 'ft.views.customerListingSearch', name='customerListingSearch'),
-    url(r'^search_jobs/results$', 'ft.views.customerListingSearchResults', name='customerListingSearchResults'),
+    url(r'^search_jobs/results$', JobSearchResults.as_view()),
     url(r'^search_trips/$', 'FastTrack.views.search_trips'),
     url(r'^post_jobs/$', 'ft.views.createCustomerListing' , name='createCustomerListing'),
     url(r'^post_trips/$', 'ft.views.createCourierListing' , name='createCourierListing' ),
