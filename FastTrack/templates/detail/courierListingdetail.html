@@ -1,33 +1,119 @@
 {% extends "base.html" %}
+<body>
 
-{% block content %}
-    <h2>Courier Posting</h2>
-    <ul>
-        <li>{{ CourierListing.itemInfo }}</li>
-        <li>{{ CourierListing.startLocation }}</li>
-        <li>{{ CourierListing.endLocation }}</li>
-        <li>{{ CourierListing.arrivalDate }}</li>
-        <li>{{ CourierListing.arrivalTime }}</li>
-        <li>{{ contactInfo }}</li>
-        <h3>Recommended Couriers<h3>
+{% block header %}
+    <!-- Header -->
+    <header id="main_header" class="header">
+        <div class="text-vertical-center">
+            <h1>FastTrack</h1>
+            <h3>Efficient &amp; Convenient</h3>
+            <br>
+            <a href="#courier_listing" class="btn btn-dark btn-lg">Courier Listing Details</a>
+        </div>
+    </header>
+    {% endblock %}
+
+    {% block content %}    
+    <section id="courier_listing" class="courier_listing">
+        <br><br>
+        <h2 style="text-align:center">Courier Listing Details</h2>
+        <br>
+        <div class="container">
+            <div class="col-lg-6">
+                <div class="row text-right">
+                    Item Info:   
+                </div>
+                <div class="row text-right">
+                    Start Destination:   
+                </div>            
+                <div class="row text-right">
+                    End Destination:   
+                </div>
+                <div class="row text-right">
+                    Pick Up Date:   
+                </div>
+                <div class="row text-right">
+                    Pick Up Time:   
+                </div>
+                <div class="row text-right">
+                    Contact Info:   
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ CourierListing.itemInfo }}
+                </div>
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ CourierListing.startLocation }}
+                </div>            
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ CourierListing.endLocation }}
+                </div>
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ CourierListing.arrivalDate }}
+                </div>
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ CourierListing.arrivalTime }}
+                </div>
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ contactInfo }}
+                </div>
+            </div>
+        </div>
+        <br>
         {% if recommend %}
-        {% for r in recommend %}
-                    <li>
-                        <a href= "{% url 'customerListingDetail' pk=r.pk %}">
-                        <div>
-                            {{ r.startLocation }}
-                       
-                            {{ r.endLocation }}
-                        
-                            {{ r.arrivalDate }}
-                       
-                            {{ r.arrivalTime }}
+        <h2 style="text-align:center">Recommended Couriers</h2>
+        <div class="container">
+            <div class="center">
+                <div class="row">
+                    <div class="text-center">
+                        <div class="col-lg-3">
+                        Start Destination
                         </div>
-                        </a>
-                    </li>
+                        <div class="col-lg-3">
+                        End Destination
+                        </div>
+                        <div class="col-lg-3">
+                        Pick Up Date
+                        </div>
+                        <div class="col-lg-3">
+                        Pick Up Time
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                {% for r in recommend %}
+                    <a href= "{% url 'courierListingDetail' pk=r.pk %}">
+                        <div class="text-center">
+                            <div class="col-lg-3">
+                            {{ r.startLocation }}
+                            </div>
+                            <div class="col-lg-3">
+                            {{ r.endLocation }}
+                            </div>
+                            <div class="col-lg-3">
+                            {{ r.arrivalDate }}
+                            </div>
+                            <div class="col-lg-3">
+                            {{ r.arrivalTime }}
+                            </div>
+                        </div>
+                    </a>
                 {% endfor %}
+                </div>
+            </div>
+        </div>
         {% else %}
-               No recommendations
+            <h4 style="text-align:center">No Recommendations</h4>
         {% endif %}
-    </ul>
+        <br>
+        <div class="container">
+            <div class="row text-center">
+                <a href="/search_trips/" class="btn btn-lg btn-dark">Back</a>
+            </div>
+        </div>
+    <br><br>
+    <hr>
+    </section>
 {% endblock %}
