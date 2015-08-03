@@ -60,7 +60,7 @@ def courierListingDetail(request, pk):
     return render(request, 'detail/courierListingdetail.html', {'CourierListing': results, 'contactInfo':contactInfo, 'recommend':recommend})    
       
 def customerListingSearch(request):
-    form = CustomerListingSearchForm()
+    form = SearchForm()
     return render(request, 'search/search_jobs.html', {'form': form})
 
 class JobSearchResults(ListView):
@@ -88,6 +88,7 @@ class JobSearchResults(ListView):
                 aD = self.request.GET.get('afterDate')
                 if aD is not None and aD != '':
                     queryset = queryset.filter(arrivalDate__gt=aD)
+            queryset = queryset.order_by('arrivalDate')
         return queryset
 
     def get_context_data(self, **kwargs):
