@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'ft',
     'rest_framework',
     'home',
-    #'userprofile',
+    'userprofile',
     'social_auth',
 
 
@@ -162,3 +162,5 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 
 )
+
+AUTH_PROFILE_MODULE = 'userprofile.UserProfile'

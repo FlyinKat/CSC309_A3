@@ -38,6 +38,7 @@ urlpatterns = [
     url(r'^post_jobs/$', 'ft.views.createCustomerListing' , name='createCustomerListing'),
     url(r'^post_trips/$', 'ft.views.createCourierListing' , name='createCourierListing' ),
     url(r'^profile/$', 'FastTrack.views.Profile'),
+    url(r'^userprofile/$', 'userprofile.views.user_profile'),
     url(r'^resetpassword/passwordsent/$', 'django.contrib.auth.views.password_reset_done', name='password_reset_done'),
     url(r'^resetpassword/$', 'django.contrib.auth.views.password_reset', name='password_reset'),
     url(r'^reset/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$', 'django.contrib.auth.views.password_reset_confirm', name='password_reset_confirm'),
