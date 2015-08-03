@@ -4,7 +4,7 @@ from django.contrib import auth
 from django.core.context_processors import csrf
 from django.contrib.auth.forms import UserCreationForm
 from .forms import *
-from ft.models import Customer, Courier, UserProfile
+from ft.models import Customer, Courier
 from django.template import RequestContext
 from forms import MyForms
 from django.core.mail import send_mail

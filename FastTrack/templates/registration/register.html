@@ -1,66 +1,35 @@
-{% extends "base.html" %}
 
-<body>
+{% load static %}
 
-    {% block header %}
-    <!-- Header -->
-    <header id="main_header" class="header">
-        <div class="text-vertical-center">
-            <h1>FastTrack</h1>
-            <h3>Efficient &amp; Convenient</h3>
-            <br>
-            <a href="#register" class="btn btn-dark btn-lg">Create an Account</a>
-        </div>
-    </header>
-    {% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FastTrack Register</title>
+    <link href="{% static 'style/css/login.css' %}" rel="stylesheet">
 
-    {% block content %}    
-    <br>
-    <section id="register" class="register">
-    <div class="container">
-        <div class="row">
-            <div class = "col-lg-6 col-centered">
-                <div id = "create_account">
-                    <h2 style="text-align:center">Create an Account</h2>
-                    <form method="post" action="">{% csrf_token %}
-                        Username: 
-                        <input type="text" name="username" id="register_username">
-                        <br>
-                        <p>(Required. At most 30 characters. Alphabets, digits, and symbols including [@ . + _ -] only.)</p>
-                        First Name:
-                        <input type="text" name="first_name">
-                        <br><br>
-                        Last Name:
-                        <input type="text" name="last_name">
-                        <br><br>                
-                        E-mail Address:
-                        <input type="email" name="email">
-                        <br><br>
-                        Password:
-                        <input type="text" name="password1">
-                        <br><br>
-                        Password Confirmation:
-                        <input type="text" name="password2">
-                        <br>
-                        <p>(Enter the same password as above for verfication.)</p>
-                        Register As:
-                        <select class="form-control" name="regAs">
-                                <option value="customer">Customer</option>
-                                <option value="courier">Courier</option>
-                        </select>
-                        <br><br>
-                        <div class="container">
-                            <div class="row search_post_buttons">
-                                <input type="submit" value="Create" class="btn btn-lg btn-dark">
-                                <a href="/" class="btn btn-lg btn-light">Back</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br><br><br><br>
-    <hr>
-    {% endblock %}
+</head>
+<body bgcolor="#D8D8D8">
+
+	<!-- FastTrack heading -->
+<div class="FT-title">
+  <h1>Register</h1>
+</div>
+
+<!-- Form Module-->
+<div class="module form-module">
+    <div class="toggle">
+
+  </div>
+  <div class="form">
+    <h2>Create an account</h2>
+     <form action="/register/" method="post">{% csrf_token %}
+      {{ form }}
+      <button type="submit" value="Register">Register</button>
+    </form>
+  </div>
+
+</div>
+
 </body>
+</html>

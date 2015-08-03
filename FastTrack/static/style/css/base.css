@@ -19,6 +19,11 @@ body {
     font-weight: 700;
 }
 
+.center {
+    margin: 0 auto;
+    width: 80%;
+}
+
 /* Custom Button Styles */
 
 .btn-dark {
@@ -133,6 +138,16 @@ input:required:focus {
 }
 
 .container input[name="arrivalTime"]{
+        width: 100%;
+        clear: both;
+}
+
+.container input[name="beforeDate"]{
+        width: 100%;
+        clear: both;
+}
+
+.container input[name="afterDate"]{
         width: 100%;
         clear: both;
 }
