@@ -98,3 +98,39 @@ class JobSearchResults(ListView):
         context['bD'] = self.request.GET.get('beforeDate')
         context['aD'] = self.request.GET.get('afterDate')
         return context
+
+class TripSearchResults(ListView):
+    model = models.CourierListing
+    template_name = 'search/search_trips_results.html'  
+    context_object_name = "results"  
+    paginate_by = 5
+    
+    def get_queryset(self):
+        queryset = super(TripSearchResults, self).get_queryset()
+        if self.request.GET.items():
+            if 'startLocation' in self.request.GET:
+                sL = self.request.GET.get('startLocation')
+                if sL is not None and sL != '':
+                    queryset = queryset.filter(startLocation=sL)
+            if 'endLocation' in self.request.GET:
+                eL = self.request.GET.get('endLocation')
+                if eL is not None and eL != '':
+                    queryset = queryset.filter(endLocation=eL)
+            if 'beforeDate' in self.request.GET:
+                bD = self.request.GET.get('beforeDate')
+                if bD is not None and bD != '':
+                    queryset = queryset.filter(arrivalDate__lt=bD)
+            if 'afterDate' in self.request.GET:
+                aD = self.request.GET.get('afterDate')
+                if aD is not None and aD != '':
+                    queryset = queryset.filter(arrivalDate__gt=aD)
+            queryset = queryset.order_by('arrivalDate')
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(TripSearchResults, self).get_context_data(**kwargs)
+        context['sL'] = self.request.GET.get('startLocation')   
+        context['eL'] = self.request.GET.get('endLocation')
+        context['bD'] = self.request.GET.get('beforeDate')
+        context['aD'] = self.request.GET.get('afterDate')
+        return context
