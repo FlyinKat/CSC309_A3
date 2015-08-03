@@ -74,6 +74,10 @@ def courierListingSearch(request):
     form = SearchForm()
     return render(request, 'search/search_trips.html', {'form': form})
 
+def rate(request):
+    form = RatingForm()
+    return render(request, 'rating/rate.html', {'form': form})
+
 class JobSearchResults(ListView):
     model = models.CustomerListing
     template_name = 'search/search_jobs_results.html'  

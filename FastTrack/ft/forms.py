@@ -19,3 +19,8 @@ class SearchForm(forms.Form):
     endLocation = models.CharField()
     beforeDate = models.DateField()
     afterDate = models.DateField()
+
+class RatingForm(ModelForm):
+    class Meta:
+        model = Rating
+        fields = ['courier', 'customer', 'rating', 'comment']
