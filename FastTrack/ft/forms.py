@@ -14,8 +14,8 @@ class CreateCourierListingForm(ModelForm):
         exclude = ['courierListingID', 'status', 'poster']
         fields = ['itemInfo', 'startLocation', 'endLocation', 'arrivalDate', 'arrivalTime']
         
-class CustomerListingSearchForm(ModelForm):
-    class Meta:
-        model = CustomerListing
-        exclude = ['customerListingID', 'status', 'poster']
-        fields = [ 'startLocation', 'endLocation', 'arrivalDate', 'arrivalTime']
+class CustomerListingSearchForm(forms.Form):
+    startLocation = models.CharField()
+    endLocation = models.CharField()
+    beforeDate = models.DateField()
+    afterDate = models.DateField()

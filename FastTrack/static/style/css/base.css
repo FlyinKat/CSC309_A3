@@ -137,6 +137,16 @@ input:required:focus {
         clear: both;
 }
 
+.container input[name="beforeDate"]{
+        width: 100%;
+        clear: both;
+}
+
+.container input[name="afterDate"]{
+        width: 100%;
+        clear: both;
+}
+
 /* Registration Form */
 
 .container input[id="register_username"]{

@@ -3,43 +3,8 @@
 
 <body>
 
-    {% block header %}
-    <!-- Header -->
-    <header id="main_header" class="header">
-        <div class="text-vertical-center">
-            <h1>FastTrack</h1>
-            <h3>Efficient &amp; Convenient</h3>
-            <br>
-            <a href="#search_jobs" class="btn btn-dark btn-lg">Search for Jobs</a>
-        </div>
-    </header>
-    {% endblock %}
-
     {% block content %}    
     <br>
-    <!--
-      <div class="container">
-        <div class="row">
-            <div class = "col-lg-6">
-                {% for r in results %}
-                    <li>
-                        <a href= "{% url 'customerListingDetail' pk=r.pk %}">
-                        <div>
-                            {{ r.startLocation }}
-                       
-                            {{ r.endLocation }}
-                        
-                            {{ r.arrivalDate }}
-                       
-                            {{ r.arrivalTime }}
-                        </div>
-                        </a>
-                    </li>
-                {% endfor %}
-                </div>
-            </div>
-        </div>
-    -->
     
     {% if results %}
          <div class="container">
@@ -67,20 +32,19 @@
             <div class="pagination">
                 <span class="page-links">
                     {% if page_obj.has_previous %}
-                        <a href="?startLocation={{ sL }}&endLocation={{ eL }}&arrivalDate={{ aD }}&arrivalTime={{ aT }}&page={{ page_obj.previous_page_number }}">previous</a>
+                        <a href="?startLocation={{ sL }}&endLocation={{ eL }}&beforeDate={{ bD }}&afterDate={{ aD }}&page={{ page_obj.previous_page_number }}">previous</a>
                     {% endif %}
                     <span class="page-current">
                         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
                     </span>
                     {% if page_obj.has_next %}
-                        <a href="?startLocation={{ sL }}&endLocation={{ eL }}&arrivalDate={{ aD }}&arrivalTime={{ aT }}&page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?startLocation={{ sL }}&endLocation={{ eL }}&beforeDate={{ bD }}&afterDate={{ aD }}&page={{ page_obj.next_page_number }}">next</a>
                     {% endif %}
                 </span>
             </div>
         {% endif %}
     {% else %}
-        <h3>My Cars</h3>
-        <p>No cars found!!! :(</p>
+        <p>No Jobs found</p>
     {% endif %}
 
     <br><br><br><br>

@@ -63,30 +63,6 @@ def customerListingSearch(request):
     form = CustomerListingSearchForm()
     return render(request, 'search/search_jobs.html', {'form': form})
 
-def customerListingSearchResults(request):    
-    if request.GET.items():
-        results = CustomerListing.objects.all()
-        if 'startLocation' in request.GET:
-            sL = request.GET.get('startLocation')
-            if sL is not None and sL != '':
-                results = results.filter(startLocation=sL)
-        if 'endLocation' in request.GET:
-            eL = request.GET.get('endLocation')
-            if eL is not None and eL != '':
-                results = results.filter(endLocation=eL)
-        if 'arrivalDate' in request.GET:
-            aD = request.GET.get('arrivalDate')
-            if aD is not None and aD != '':
-                results = results.filter(arrivalDate=aD)
-        if 'arrivalTime' in request.GET:
-            aT = request.GET.get('arrivalTime')
-            if aT is not None and aT != '':
-                results = results.filter(arrivalTime=aT)
-        return render(request, "search/search_jobs_results.html", {'results': results})
-    else:
-        results = CustomerListing.objects.all()
-        return render(request, "search/search_jobs_results.html", {'results': results})
-
 class JobSearchResults(ListView):
     model = models.CustomerListing
     template_name = 'search/search_jobs_results.html'  
@@ -104,20 +80,20 @@ class JobSearchResults(ListView):
                 eL = self.request.GET.get('endLocation')
                 if eL is not None and eL != '':
                     queryset = queryset.filter(endLocation=eL)
-            if 'arrivalDate' in self.request.GET:
-                aD = self.request.GET.get('arrivalDate')
+            if 'beforeDate' in self.request.GET:
+                bD = self.request.GET.get('beforeDate')
+                if bD is not None and bD != '':
+                    queryset = queryset.filter(arrivalDate__lt=bD)
+            if 'afterDate' in self.request.GET:
+                aD = self.request.GET.get('afterDate')
                 if aD is not None and aD != '':
-                    queryset = queryset.filter(arrivalDate=aD)
-            if 'arrivalTime' in self.request.GET:
-                aT = self.request.GET.get('arrivalTime')
-                if aT is not None and aT != '':
-                    queryset = queryset.filter(arrivalTime=aT)
+                    queryset = queryset.filter(arrivalDate__gt=aD)
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super(JobSearchResults, self).get_context_data(**kwargs)
         context['sL'] = self.request.GET.get('startLocation')   
         context['eL'] = self.request.GET.get('endLocation')
-        context['aD'] = self.request.GET.get('arrivalDate')
-        context['aT'] = self.request.GET.get('arrivalTime')
+        context['bD'] = self.request.GET.get('beforeDate')
+        context['aD'] = self.request.GET.get('afterDate')
         return context
