@@ -1,16 +1,45 @@
+{% extends "base.html" %}
+
+<body>
+
+{% block header %}
+    <!-- Header -->
+    <header id="main_header" class="header">
+        <div class="text-vertical-center">
+            <h1>FastTrack</h1>
+            <h3>Efficient &amp; Convenient</h3>
+            <br>
+            <a href="#update_profile" class="btn btn-dark btn-lg">Update Profile</a>
+        </div>
+    </header>
+    {% endblock %}
+
 {% block content %}
 
-    <h2>Profile</h2>
+    <section id="update_profile" class="user_profile">
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class = "col-lg-3 col-centered">
+                <div id = "updateProfile">
+                    <h2 style="text-align:center">Update Profile</h2>
+                    <br>
+                    {% for field in form %}
+                        {{ field.error }}
+                    {% endfor %}
+                    <form action="/userprofile/" method="post">{% csrf_token %}
+                        {{ form.as_p }}
+                    <br>
+                    <div class="row text-center">
+                        <input type="submit" value="Update" class="btn btn-lg btn-dark"/>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    {% for field in form %}
-        {{ field.error }}
-
-    {% endfor %}
-
-    <form action="/userprofile/" method="post">{% csrf_token %}
-        {{ form.as_ul }}
-
-        <input type="submit" value="Update" />
-    </form>
-
+    <br><br>
+    <hr>
+    </section>
 {% endblock %}

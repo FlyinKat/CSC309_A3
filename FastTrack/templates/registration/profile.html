@@ -1,13 +1,69 @@
-{% block content %}
+{% extends "base.html" %}
 
+<body>
 
-    <p>username: {{ user_profile.username }}</p>
-    <p>first name: {{ user_profile.first_name }}</p>
-    <p>last name: {{ user_profile.last_name }}</p>
-    <p>email: {{ user_profile.email }}</p>
-    <p>registered as: {{ user_profile.regAs }}</p>
+{% block header %}
+    <!-- Header -->
+    <header id="main_header" class="header">
+        <div class="text-vertical-center">
+            <h1>FastTrack</h1>
+            <h3>Efficient &amp; Convenient</h3>
+            <br>
+            <a href="#user_profile" class="btn btn-dark btn-lg">User Profile</a>
+        </div>
+    </header>
+    {% endblock %}
 
-    <p>Click <a href="/userprofile/">here</a> to update your profile.</p>
+{% block content %} 
 
+    <section id="user_profile" class="user_profile">
+        <br><br>
+        <h2 style="text-align:center">User Profile</h2>
+        <br>
+        <div class="container">
+            <div class="col-lg-6">
+                <div class="row text-right">
+                    Username:   
+                </div>
+                <div class="row text-right">
+                    First Name:   
+                </div>            
+                <div class="row text-right">
+                    Last Name:   
+                </div>
+                <div class="row text-right">
+                    E-mail Address:   
+                </div>
+                <div class="row text-right">
+                    Registered As:   
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ user_profile.username }}
+                </div>
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ user_profile.first_name }}
+                </div>            
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ user_profile.last_name }}
+                </div>
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ user_profile.email }}
+                </div>
+                <div class="row text-left">
+                    &nbsp; &nbsp; {{ user_profile.regAs }}
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row text-center">
+                <a href="/userprofile/" class="btn btn-lg btn-dark">Update Profile</a>
+            </div>
+        </div>
 
+    <br><br>
+    <hr>
+    </section>
 {% endblock %}
