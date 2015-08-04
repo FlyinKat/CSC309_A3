@@ -87,6 +87,10 @@ def rate(request):
                     c = Customer(user=request.user)
                     c.save()
                     newRating.customer = c
+                try:
+                    newRating.courier = Courier.objects.get(pk=pk)
+                except Courier.DoesNotExist:
+                    #redirect 404 here
                 newRating = form.save()
                 return render(request, 'rating/rate.html', {'form': form})
         else:
