@@ -88,7 +88,7 @@ def rate(request):
                     c.save()
                     newRating.customer = c
                 try:
-                    newRating.courier = Courier.objects.get(pk=pk)
+                    newRating.courier = CourierListing.objects.get(pk=pk).poster
                 except Courier.DoesNotExist:
                     #redirect 404 here
                 newRating = form.save()
