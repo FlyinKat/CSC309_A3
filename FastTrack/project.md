@@ -71,6 +71,12 @@ Courier Listing Details Page:
 
 The details about the customer listing are provided in this page, including his/her contact info. Users should click on the e-mail address provided to send them an e-mail. If there is a recommendation, it will be listed below the customer details, otherwise it will say “No recommendations”. The “Back” button returns them to the search results page.
 
+Administration:
+
+The administrative page can only be accessed by the admin, by accessing http://127.0.0.1:8000/admin/. 
+Username: admin; Password: admin. 
+There, the admin is allowed to add, edit or delete users, couriers, customers, listings, and ratings.
+
 Design:
 
 The standard design of this site consists of the main header, the content, and the footer. The main header appears in the majority of the pages, where the “FastTrack” title is seen, followed by its’ sub-headline and a button that links to the content section. 
