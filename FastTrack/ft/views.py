@@ -63,8 +63,9 @@ def customerListingDetail(request, pk):
 def courierListingDetail(request, pk):
     results = get_object_or_404(CourierListing,pk=pk)
     contactInfo = results.poster.user.email
+    avgRating = Rating.objects.get(courier=results.poster).aggregate(Avg('rating'))
     recommend = CourierListing.objects.filter(startLocation=results.startLocation,endLocation=results.endLocation).exclude(pk=pk)[0:3]
-    return render(request, 'detail/courierListingdetail.html', {'CourierListing': results, 'contactInfo':contactInfo, 'recommend':recommend})    
+    return render(request, 'detail/courierListingdetail.html', {'CourierListing': results, 'contactInfo':contactInfo, 'recommend':recommend, 'avgRating':avgRating})    
       
 def customerListingSearch(request):
     form = SearchForm()
