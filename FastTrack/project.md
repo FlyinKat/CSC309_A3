@@ -1,5 +1,18 @@
 User Documentation
 
+Video: http://youtu.be/w-en7gAFzsE
+
+Dependencies:
+Python 2.7.10
+Django 1.8
+Django Rest Framework 3.1
+Django Social Auth
+
+pip install django
+pip install djangorestframework
+pip install django-social-auth
+
+
 Home Page:
 
 Users will first see the title of the page, “FastTrack” with a little description below. The “Find Out More” button below will take users to the “About Us” section of the page, which provides a brief description about FastTrack delivery services. Users will then see two columns, Customers and Couriers. In the Customers column, there are two buttons, “Search for Jobs” and “Post a Job”. In the Couriers column, there are two buttons, “Search for Trips” and “Post a Trips”. Each of the buttons will link to their pages respectively. Below that, there are two buttons, “Sign Up!” and “Log in” in the blue bar. Users will be taken to the sign up and login pages respectively by clicking on them. 
