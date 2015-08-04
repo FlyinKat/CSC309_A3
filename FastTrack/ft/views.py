@@ -76,10 +76,23 @@ def courierListingSearch(request):
     return render(request, 'search/search_trips.html', {'form': form})
 
 def rate(request):
-    form = RatingForm()
-    instance = form.save(commit=False)
-    print instance.customer
-    instance.save()
+    if request.user.is_authenticated():   
+        if request.method == 'POST':
+            form = RatingForm((request.POST))
+            if form.is_valid():
+                newRating = form.save(commit=False)
+                try:
+                    newRating.customer = Customer.objects.get(user=request.user)
+                except Customer.DoesNotExist:
+                    c = Customer(user=request.user)
+                    c.save()
+                    newRating.customer = c
+                newRating = form.save()
+                return render(request, 'rating/rate.html', {'form': form})
+        else:
+            form = RatingForm()
+    else:
+        return redirect('FastTrack.views.login')
     return render(request, 'rating/rate.html', {'form': form})
 
 class JobSearchResults(ListView):
