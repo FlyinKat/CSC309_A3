@@ -91,7 +91,7 @@ def rate(request):
                     newRating.courier = CourierListing.objects.get(pk=pk).poster
                 except Courier.DoesNotExist:
                     #redirect 404 here
-                newRating = form.save()
+                    newRating = form.save()
                 return render(request, 'rating/rate.html', {'form': form})
         else:
             form = RatingForm()
