@@ -3,15 +3,26 @@ User Documentation
 Video: http://youtu.be/w-en7gAFzsE
 
 Dependencies:
+
 Python 2.7.10
+
 Django 1.8
+
 Django Rest Framework 3.1
+
 Django Social Auth
 
 pip install django
+
 pip install djangorestframework
+
 pip install django-social-auth
 
+Instructions:
+
+python manage.py runserver
+
+goto http://127.0.0.1:8000/ in a browser
 
 Home Page:
 
