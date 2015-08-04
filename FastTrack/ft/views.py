@@ -2,6 +2,7 @@ from django.shortcuts import *
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import *
 from .forms import *
+from django.db.models import Avg
 from django.views.generic import DetailView, ListView
 import models
 
@@ -64,7 +65,11 @@ def courierListingDetail(request, pk):
     results = get_object_or_404(CourierListing,pk=pk)
     contactInfo = results.poster.user.email
     recommend = CourierListing.objects.filter(startLocation=results.startLocation,endLocation=results.endLocation).exclude(pk=pk)[0:3]
-    return render(request, 'detail/courierListingdetail.html', {'CourierListing': results, 'contactInfo':contactInfo, 'recommend':recommend})    
+    try:
+        avgRating = Rating.objects.filter(courier=results.poster).aggregate(Avg('rating'))
+    except AttributeError:
+        avgRating = "none"
+    return render(request, 'detail/courierListingdetail.html', {'CourierListing': results, 'contactInfo':contactInfo, 'recommend':recommend, 'avgRating':avgRating})    
       
 def customerListingSearch(request):
     form = SearchForm()
@@ -73,6 +78,31 @@ def customerListingSearch(request):
 def courierListingSearch(request):
     form = SearchForm()
     return render(request, 'search/search_trips.html', {'form': form})
+
+def rate(request, pk):
+    if request.user.is_authenticated():   
+        if request.method == 'POST':
+            form = RatingForm((request.POST))
+            if form.is_valid():
+                newRating = form.save(commit=False)
+                try:
+                    newRating.customer = Customer.objects.get(user=request.user)
+                except Customer.DoesNotExist:
+                    c = Customer(user=request.user)
+                    c.save()
+                    newRating.customer = c
+                try:
+                    newRating.courier = CourierListing.objects.get(pk=pk).poster
+                except CourierListing.DoesNotExist:
+                    #redirect 404 here
+                    return Http404
+                newRating = form.save()
+                return redirect(CourierListing.objects.get(pk=pk).get_absolute_url())
+        else:
+            form = RatingForm()
+    else:
+        return redirect('FastTrack.views.login')
+    return render(request, 'rating/rate.html', {'form': form})
 
 class JobSearchResults(ListView):
     model = models.CustomerListing

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+<body>
+
+    {% block header %}
+    <!-- Header -->
+    <header id="main_header" class="header">
+        <div class="text-vertical-center">
+            <h1>FastTrack</h1>
+            <h3>Efficient &amp; Convenient</h3>
+            <br>
+            <a href="#rate" class="btn btn-dark btn-lg">Rate</a>
+        </div>
+    </header>
+    {% endblock %}
+
+    {% block content %}    
+    <br>
+    <section id="rate" class="rate">
+    <div class="container">
+        <div class="row">
+            <div class = "col-lg-6 col-centered">
+                <div id = "rate">
+                    <h2 style="text-align:center">Rating</h2>
+                    <form method="post" action="">{% csrf_token %}
+                        Rating:
+                        <input type="scale" name="rating">
+                        <br><br>                
+                        Comment:
+                        <input type="text" name="comment">
+                        <br><br>
+                        <div class="container">
+                            <div class="row rate_buttons">
+                                <a href="/" class="btn btn-lg btn-light">Back</a>
+                                <input type="submit" value="Rate" class="btn btn-lg btn-dark">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    <hr>
+    {% endblock %}
+    
+</body>    

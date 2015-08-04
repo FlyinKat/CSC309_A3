@@ -10,5 +10,8 @@ class UserProfile(models.Model):
     COURIER = 'COURIER'
     STATUS = ((CUSTOMER, ("CUSTOMER")), (COURIER, ("COURIER")))
     regAs = models.CharField(max_length=10, choices=STATUS)
+    #NUMERATOR = models.IntegerField(default=0)
+    #DENOMINATOR = models.IntegerField(default=0)
+    rating = models.IntegerField(default=0)
 
 User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
