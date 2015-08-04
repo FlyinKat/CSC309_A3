@@ -1,4 +1,4 @@
-User Documentation
+#User Documentation
 
 Video: http://youtu.be/w-en7gAFzsE
 
