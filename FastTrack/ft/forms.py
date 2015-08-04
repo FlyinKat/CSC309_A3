@@ -23,4 +23,5 @@ class SearchForm(forms.Form):
 class RatingForm(ModelForm):
     class Meta:
         model = Rating
-        fields = ['courier', 'customer', 'rating', 'comment']
+        exclude = ['courier', 'customer']
+        fields = [ 'rating', 'comment']
