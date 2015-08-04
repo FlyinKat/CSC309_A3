@@ -80,7 +80,11 @@ The “Search for Trips” button in the home page will redirect users to this p
 
 Courier Listing Details Page:
 
-The details about the customer listing are provided in this page, including his/her contact info. Users should click on the e-mail address provided to send them an e-mail. If there is a recommendation, it will be listed below the customer details, otherwise it will say “No recommendations”. The “Back” button returns them to the search results page.
+The details about the customer listing are provided in this page, including his/her contact info. Users should click on the e-mail address provided to send them an e-mail. If there is a recommendation, it will be listed below the customer details, otherwise it will say “No recommendations”. The "Rate" button redirects the user to the ratings page. The “Back” button returns them to the search results page.
+
+Ratings Page:
+
+Here, the user (customer) can rate and comment about his/her experience with a particular courier. The "Rate" button will store the user's rating toward the courier. The "Back" button returns the user to the home page.
 
 Administration:
 
