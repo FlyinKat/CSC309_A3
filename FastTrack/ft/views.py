@@ -2,6 +2,7 @@ from django.shortcuts import *
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import *
 from .forms import *
+from django.db.models import Avg
 from django.views.generic import DetailView, ListView
 import models
 
@@ -63,10 +64,9 @@ def customerListingDetail(request, pk):
 def courierListingDetail(request, pk):
     results = get_object_or_404(CourierListing,pk=pk)
     contactInfo = results.poster.user.email
-    avgRating = "none"
     recommend = CourierListing.objects.filter(startLocation=results.startLocation,endLocation=results.endLocation).exclude(pk=pk)[0:3]
     try:
-        avgRating = Rating.objects.get(courier=results.poster).aggregate(Avg('rating'))
+        avgRating = Rating.objects.filter(courier=results.poster).aggregate(Avg('rating'))
     except AttributeError:
         avgRating = "none"
     return render(request, 'detail/courierListingdetail.html', {'CourierListing': results, 'contactInfo':contactInfo, 'recommend':recommend, 'avgRating':avgRating})    
