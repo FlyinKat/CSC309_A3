@@ -8,6 +8,6 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^jobPostings/(?P<pk>[0-9]+)/$', views.customerListingDetail, name='customerListingDetail'),
     url(r'^tripPostings/(?P<pk>[0-9]+)/$', views.courierListingDetail, name='courierListingDetail'),
-    url(r'^rate/(?P<pk>[0-9]+)/$', views.rate, name='rate'),
+    url(r'^tripPostings/(?P<pk>[0-9]+)/rate/$', views.rate, name='rate'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
